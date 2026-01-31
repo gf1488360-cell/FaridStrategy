@@ -7,240 +7,306 @@
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600;700&family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 </head>
 <body>
-    <!-- Top Bar -->
-    <div class="top-bar">
+    <!-- Top Announcement Bar -->
+    <div class="announcement-bar">
         <div class="container">
-            <span class="site-url">FaridStrategy.com</span>
-            <span class="separator">|</span>
-            <span class="name-title">Ghulam Farid | Business Strategy Analyst</span>
+            <span class="announcement-text">Strategic Business Analysis & Consulting | Data-Driven Decision Making</span>
+            <span class="announcement-contact">Available for projects</span>
         </div>
     </div>
 
-    <!-- Navigation -->
-    <header class="header">
+    <!-- Main Navigation -->
+    <nav class="main-nav">
         <div class="container">
-            <nav class="nav">
-                <div class="nav-brand">
-                    <span class="brand-text">Business Strategy Analyst</span>
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <div class="logo-mark">GF</div>
+                    <div class="logo-text">
+                        <span class="logo-name">Ghulam Farid</span>
+                        <span class="logo-title">Business Strategy Analyst</span>
+                    </div>
                 </div>
                 
-                <ul class="nav-list">
-                    <li><a href="#home" class="nav-link active">Home</a></li>
-                    <li><a href="#articles" class="nav-link">Articles</a></li>
-                    <li><a href="#case-studies" class="nav-link">Case Studies</a></li>
-                    <li><a href="#about" class="nav-link">About</a></li>
-                    <li><a href="#feedback" class="nav-link">Feedback</a></li>
-                    <li><a href="#contact" class="nav-link">Get in Touch</a></li>
-                </ul>
+                <div class="nav-menu">
+                    <ul class="nav-list">
+                        <li><a href="#home" class="nav-link">Home</a></li>
+                        <li><a href="#approach" class="nav-link">Approach</a></li>
+                        <li><a href="#expertise" class="nav-link">Expertise</a></li>
+                        <li><a href="#insights" class="nav-link">Insights</a></li>
+                        <li><a href="#contact" class="nav-link">Contact</a></li>
+                    </ul>
+                    <a href="#contact" class="nav-cta">
+                        <span>Start a project</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
                 
-                <button class="menu-toggle" id="menuToggle">
-                    <i class="fas fa-bars"></i>
+                <button class="mobile-toggle" id="mobileToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
                 </button>
-            </nav>
+            </div>
         </div>
-    </header>
+    </nav>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="container">
-            <div class="hero-content">
-                <h1 class="hero-title">Where Data Intelligence Meets <span class="highlight">Business Strategy</span></h1>
-                <p class="hero-subtitle">Transforming complex business challenges into actionable, data-driven strategies that deliver measurable results and sustainable growth.</p>
-                
-                <!-- Professional Philosophy -->
-                <div class="philosophy-section">
-                    <h2>My Professional Philosophy</h2>
-                    <p class="philosophy-text">I believe in evidence-based decision making where every strategy is rooted in data, validated by rigorous analysis, and executed with precision to create sustainable competitive advantages and drive organizational success.</p>
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge">Business Strategy Analyst</div>
+                    <h1 class="hero-title">Where <span class="text-gradient">Data Intelligence</span> Meets Strategic Execution</h1>
+                    <p class="hero-subtitle">Transforming complex business challenges into actionable, data-driven strategies that deliver measurable results and sustainable growth for organizations.</p>
+                    
+                    <div class="hero-cta">
+                        <a href="#approach" class="btn btn-primary">
+                            <span>Explore My Approach</span>
+                            <i class="fas fa-arrow-down"></i>
+                        </a>
+                        <a href="#contact" class="btn btn-secondary">
+                            <span>Schedule Consultation</span>
+                            <i class="fas fa-calendar"></i>
+                        </a>
+                    </div>
                 </div>
                 
-                <!-- Vision, Strategy, Implementation Cards -->
-                <div class="value-propositions">
-                    <div class="value-card">
-                        <div class="value-icon">
-                            <i class="fas fa-eye"></i>
+                <div class="hero-visual">
+                    <div class="visual-container">
+                        <div class="chart-grid">
+                            <div class="chart-bar" style="height: 70%; animation-delay: 0.1s;"></div>
+                            <div class="chart-bar" style="height: 90%; animation-delay: 0.2s;"></div>
+                            <div class="chart-bar" style="height: 60%; animation-delay: 0.3s;"></div>
+                            <div class="chart-bar" style="height: 85%; animation-delay: 0.4s;"></div>
                         </div>
+                        <div class="strategy-elements">
+                            <div class="element analysis">
+                                <i class="fas fa-chart-line"></i>
+                                <span>Analysis</span>
+                            </div>
+                            <div class="element strategy">
+                                <i class="fas fa-chess-board"></i>
+                                <span>Strategy</span>
+                            </div>
+                            <div class="element execution">
+                                <i class="fas fa-cogs"></i>
+                                <span>Execution</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Philosophy Section -->
+    <section class="philosophy-section">
+        <div class="container">
+            <div class="section-intro">
+                <span class="section-label">Professional Philosophy</span>
+                <h2 class="section-title">Strategic Thinking Rooted in Evidence-Based Decision Making</h2>
+            </div>
+            
+            <div class="philosophy-content">
+                <div class="philosophy-text">
+                    <p class="lead-text">I believe in evidence-based decision making where every strategy is rooted in data, validated by rigorous analysis, and executed with precision to create sustainable competitive advantages and drive organizational success.</p>
+                    
+                    <div class="philosophy-points">
+                        <div class="point">
+                            <div class="point-number">01</div>
+                            <div class="point-content">
+                                <h3>Data-Driven Foundation</h3>
+                                <p>All strategic recommendations are grounded in comprehensive data analysis and market intelligence.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="point">
+                            <div class="point-number">02</div>
+                            <div class="point-content">
+                                <h3>Rigorous Validation</h3>
+                                <p>Every hypothesis is tested, validated, and refined through iterative analysis and stakeholder feedback.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="point">
+                            <div class="point-number">03</div>
+                            <div class="point-content">
+                                <h3>Precision Execution</h3>
+                                <p>Strategic plans are implemented with clear roadmaps, measurable KPIs, and continuous optimization.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Approach Section -->
+    <section id="approach" class="approach-section">
+        <div class="container">
+            <div class="section-intro centered">
+                <span class="section-label">Strategic Framework</span>
+                <h2 class="section-title">A Three-Pillar Approach to Business Strategy</h2>
+                <p class="section-subtitle">Comprehensive methodology combining vision, strategy, and execution</p>
+            </div>
+            
+            <div class="approach-grid">
+                <div class="approach-card vision">
+                    <div class="approach-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <div class="approach-content">
+                        <span class="approach-label">First Pillar</span>
                         <h3>Vision</h3>
                         <p>To bridge the gap between analytical insights and strategic execution, helping organizations navigate complexity with clarity and confidence to achieve their long-term objectives.</p>
+                        <ul class="approach-list">
+                            <li>Future State Visualization</li>
+                            <li>Strategic Direction Setting</li>
+                            <li>Objective Alignment</li>
+                            <li>Long-term Planning</li>
+                        </ul>
                     </div>
-                    
-                    <div class="value-card">
-                        <div class="value-icon">
-                            <i class="fas fa-chess-board"></i>
-                        </div>
+                </div>
+                
+                <div class="approach-card strategy">
+                    <div class="approach-icon">
+                        <i class="fas fa-chess-board"></i>
+                    </div>
+                    <div class="approach-content">
+                        <span class="approach-label">Second Pillar</span>
                         <h3>Strategy</h3>
                         <p>Develop innovative yet practical strategic frameworks that combine market intelligence, competitive analysis, and operational efficiency to create measurable business impact.</p>
+                        <ul class="approach-list">
+                            <li>Framework Development</li>
+                            <li>Competitive Analysis</li>
+                            <li>Market Positioning</li>
+                            <li>Strategic Planning</li>
+                        </ul>
                     </div>
-                    
-                    <div class="value-card">
-                        <div class="value-icon">
-                            <i class="fas fa-cogs"></i>
-                        </div>
+                </div>
+                
+                <div class="approach-card execution">
+                    <div class="approach-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <div class="approach-content">
+                        <span class="approach-label">Third Pillar</span>
                         <h3>Implementation</h3>
                         <p>Focus on practical execution with clear roadmaps, defined KPIs, and continuous optimization to ensure strategies deliver tangible results and sustainable growth.</p>
-                    </div>
-                </div>
-                
-                <!-- Call to Action -->
-                <div class="hero-cta">
-                    <a href="#case-studies" class="btn btn-primary">Explore My Work</a>
-                    <a href="#contact" class="btn btn-secondary">Start a Conversation</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Articles Section -->
-    <section id="articles" class="section">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Strategic <span class="highlight">Articles</span></h2>
-                <p class="section-subtitle">Insights, analysis, and thought leadership on business strategy</p>
-            </div>
-            
-            <div class="articles-grid">
-                <div class="article-card placeholder">
-                    <div class="article-icon">
-                        <i class="fas fa-newspaper"></i>
-                    </div>
-                    <h3>Articles Coming Soon</h3>
-                    <p>I'm currently working on in-depth articles covering strategic frameworks, market analysis, and business insights. Check back soon for valuable content!</p>
-                    <div class="coming-soon-tags">
-                        <span>Market Analysis</span>
-                        <span>Strategic Frameworks</span>
-                        <span>Business Insights</span>
+                        <ul class="approach-list">
+                            <li>Roadmap Development</li>
+                            <li>KPI Definition</li>
+                            <li>Performance Tracking</li>
+                            <li>Continuous Optimization</li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Case Studies Section -->
-    <section id="case-studies" class="section bg-light">
+    <!-- Expertise Section -->
+    <section id="expertise" class="expertise-section">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Case <span class="highlight">Studies</span></h2>
-                <p class="section-subtitle">Practical applications of strategic frameworks to real business challenges</p>
+            <div class="section-intro">
+                <span class="section-label">Areas of Expertise</span>
+                <h2 class="section-title">Strategic Capabilities & Core Competencies</h2>
             </div>
             
-            <div class="case-studies-grid">
-                <div class="case-card placeholder">
-                    <div class="case-icon">
-                        <i class="fas fa-briefcase"></i>
-                    </div>
-                    <h3>Case Studies Coming Soon</h3>
-                    <p>Detailed case studies demonstrating strategic analysis and problem-solving are currently in development. Exciting real-world examples coming shortly!</p>
-                    <div class="coming-soon-tags">
-                        <span>Porter's Analysis</span>
-                        <span>SWOT Analysis</span>
-                        <span>Market Entry</span>
-                        <span>Operations Strategy</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="section">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">About <span class="highlight">Me</span></h2>
-                <p class="section-subtitle">Who I am and what I bring to strategic challenges</p>
-            </div>
-            
-            <div class="about-content">
-                <div class="about-text">
-                    <h3>Who I Am</h3>
+            <div class="expertise-content">
+                <div class="expertise-intro">
+                    <h3>Who I Am & What I Do</h3>
                     <p>I'm a Business Strategy Analyst specializing in transforming complex data into actionable business strategies. My expertise lies in bridging the gap between analytical insights and practical business decisions to drive growth and efficiency.</p>
                     
-                    <h3>What I Do</h3>
                     <p>I analyze market dynamics, evaluate competitive landscapes, and develop strategic roadmaps using data-driven frameworks. My approach ensures organizations make informed decisions that create sustainable competitive advantages.</p>
                     
-                    <h3>Why Choose Me</h3>
-                    <p>Data Science × Business Strategy = Intelligent Growth.</p>
+                    <p>I combine rigorous analytical skills with deep business acumen, ensuring every strategy is theoretically sound and practically executable. My focus remains on delivering measurable outcomes and tangible business impact.</p>
+                </div>
+                
+                <div class="expertise-grid">
+                    <div class="expertise-category">
+                        <h4>Strategic Analysis</h4>
+                        <div class="skills">
+                            <span class="skill">Business Strategy Development</span>
+                            <span class="skill">Competitive Intelligence</span>
+                            <span class="skill">Market Research & Analysis</span>
+                            <span class="skill">Strategic Frameworks</span>
+                        </div>
+                    </div>
                     
-                    <h3>Core Competencies</h3>
-                    <div class="competencies-grid">
-                        <span class="competency-tag">Business Strategy Development</span>
-                        <span class="competency-tag">Data Analysis & Interpretation</span>
-                        <span class="competency-tag">Competitive Intelligence</span>
-                        <span class="competency-tag">Market Research & Analysis</span>
-                        <span class="competency-tag">Strategic Frameworks</span>
-                        <span class="competency-tag">Performance Metrics & KPIs</span>
-                        <span class="competency-tag">Business Process Optimization</span>
-                        <span class="competency-tag">Financial Analysis</span>
-                        <span class="competency-tag">Risk Assessment</span>
-                        <span class="competency-tag">Stakeholder Communication</span>
+                    <div class="expertise-category">
+                        <h4>Data & Analytics</h4>
+                        <div class="skills">
+                            <span class="skill">Data Analysis & Interpretation</span>
+                            <span class="skill">Performance Metrics & KPIs</span>
+                            <span class="skill">Financial Analysis</span>
+                            <span class="skill">Risk Assessment</span>
+                        </div>
+                    </div>
+                    
+                    <div class="expertise-category">
+                        <h4>Operations & Execution</h4>
+                        <div class="skills">
+                            <span class="skill">Business Process Optimization</span>
+                            <span class="skill">Stakeholder Communication</span>
+                            <span class="skill">Project Management</span>
+                            <span class="skill">Implementation Planning</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Feedback Section -->
-    <section id="feedback" class="section bg-light">
+    <!-- Insights Section -->
+    <section id="insights" class="insights-section">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Share Your <span class="highlight">Feedback</span></h2>
-                <p class="section-subtitle">Your insights help me improve and deliver better value</p>
+            <div class="section-intro centered">
+                <span class="section-label">Strategic Insights</span>
+                <h2 class="section-title">Articles & Case Studies</h2>
+                <p class="section-subtitle">Analysis, frameworks, and real-world applications</p>
             </div>
             
-            <div class="feedback-content">
-                <div class="feedback-form">
-                    <h3>Submit Your Feedback</h3>
-                    <form id="feedbackForm" action="https://formspree.io/f/mnjvrrvr" method="POST">
-                        <input type="hidden" name="_subject" value="New Feedback from FaridStrategy.com">
-                        <input type="hidden" name="_format" value="plain">
-                        
-                        <div class="form-group">
-                            <label for="reviewerName">Your Name *</label>
-                            <input type="text" id="reviewerName" name="name" placeholder="Enter your full name" required>
+            <div class="insights-grid">
+                <div class="insight-card">
+                    <div class="insight-header">
+                        <span class="insight-type">Coming Soon</span>
+                        <h3>Strategic Articles</h3>
+                    </div>
+                    <div class="insight-content">
+                        <p>In-depth analysis and thought leadership on business strategy, market dynamics, and strategic frameworks.</p>
+                        <div class="insight-tags">
+                            <span>Market Analysis</span>
+                            <span>Strategic Frameworks</span>
+                            <span>Business Insights</span>
                         </div>
-                        
-                        <div class="form-group">
-                            <label for="reviewerEmail">Your Email *</label>
-                            <input type="email" id="reviewerEmail" name="_replyto" placeholder="Enter your email address" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="feedbackType">Feedback Regarding *</label>
-                            <select id="feedbackType" name="feedback_type" required>
-                                <option value="">Select feedback type</option>
-                                <option value="general">General Feedback</option>
-                                <option value="case_study">Specific Case Study</option>
-                                <option value="article">Specific Article</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group specific-item-group" id="specificItemGroup" style="display: none;">
-                            <label for="specificItem">Item Name *</label>
-                            <input type="text" id="specificItem" name="item_name" placeholder="Enter case study or article name">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="reviewContent">Your Feedback *</label>
-                            <textarea id="reviewContent" name="message" rows="5" placeholder="Please share your detailed feedback..." required></textarea>
-                        </div>
-                        
-                        <div class="form-submit">
-                            <button type="submit" class="btn btn-primary">
-                                <i class="fas fa-paper-plane"></i> Submit Feedback
-                            </button>
-                            <p class="form-note">Your feedback will be sent directly to my email</p>
-                        </div>
-                    </form>
+                    </div>
+                    <div class="insight-footer">
+                        <span class="insight-status">In Development</span>
+                    </div>
                 </div>
                 
-                <div class="reviews-section">
-                    <h3>Client Reviews</h3>
-                    <div class="no-reviews">
-                        <i class="far fa-comment-alt"></i>
-                        <h4>Reviews Currently Not Available</h4>
-                        <p>Be the first to share your experience! Your feedback will appear here once submitted.</p>
+                <div class="insight-card">
+                    <div class="insight-header">
+                        <span class="insight-type">Coming Soon</span>
+                        <h3>Case Studies</h3>
+                    </div>
+                    <div class="insight-content">
+                        <p>Detailed real-world applications of strategic frameworks to complex business challenges across industries.</p>
+                        <div class="insight-tags">
+                            <span>Porter's Analysis</span>
+                            <span>SWOT Analysis</span>
+                            <span>Market Entry</span>
+                            <span>Operations Strategy</span>
+                        </div>
+                    </div>
+                    <div class="insight-footer">
+                        <span class="insight-status">In Development</span>
                     </div>
                 </div>
             </div>
@@ -248,120 +314,144 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="section">
+    <section id="contact" class="contact-section">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Get in <span class="highlight">Touch</span></h2>
-                <p class="section-subtitle">Let's discuss how strategic thinking can transform your business</p>
-            </div>
-            
-            <div class="contact-content">
+            <div class="contact-grid">
                 <div class="contact-info">
-                    <div class="contact-card">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h4>Email</h4>
-                            <p>gf1488360@gmail.com</p>
-                        </div>
+                    <div class="section-intro">
+                        <span class="section-label">Get in Touch</span>
+                        <h2 class="section-title">Start a Strategic Conversation</h2>
+                        <p class="section-subtitle">Let's discuss how data-driven strategy can transform your business</p>
                     </div>
                     
-                    <div class="contact-card">
-                        <div class="contact-icon">
-                            <i class="fas fa-globe"></i>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Email</h4>
+                                <p>gf1488360@gmail.com</p>
+                            </div>
                         </div>
-                        <div class="contact-details">
-                            <h4>Website</h4>
-                            <p>FaridStrategy.com</p>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Phone</h4>
+                                <p>+92 308 6007904</p>
+                            </div>
                         </div>
-                    </div>
-                    
-                    <div class="contact-card">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone"></i>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Location</h4>
+                                <p>Lahore, Pakistan</p>
+                            </div>
                         </div>
-                        <div class="contact-details">
-                            <h4>Mobile</h4>
-                            <p>+92 308 6007904</p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-card">
-                        <div class="contact-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h4>Location</h4>
-                            <p>Lahore, Pakistan</p>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Website</h4>
+                                <p>FaridStrategy.com</p>
+                            </div>
                         </div>
                     </div>
                 </div>
                 
-                <div class="contact-form">
-                    <h3>Send a Message</h3>
-                    <form id="contactForm" action="https://formspree.io/f/mnjvrrvr" method="POST">
-                        <input type="hidden" name="_subject" value="New Message from FaridStrategy.com">
-                        <input type="hidden" name="_format" value="plain">
-                        
-                        <div class="form-group">
-                            <label for="contactName">Your Name *</label>
-                            <input type="text" id="contactName" name="name" placeholder="Enter your full name" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="contactEmail">Your Email *</label>
-                            <input type="email" id="contactEmail" name="_replyto" placeholder="Enter your email address" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="contactSubject">Subject *</label>
-                            <input type="text" id="contactSubject" name="subject" placeholder="What is this regarding?" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="contactMessage">Your Message *</label>
-                            <textarea id="contactMessage" name="message" rows="5" placeholder="Please type your message here..." required></textarea>
-                        </div>
-                        
-                        <div class="form-submit">
-                            <button type="submit" class="btn btn-primary">
-                                <i class="fas fa-paper-plane"></i> Send Message
+                <div class="contact-form-wrapper">
+                    <div class="contact-form-card">
+                        <h3>Send a Message</h3>
+                        <form id="contactForm" action="https://formspree.io/f/mnjvrrvr" method="POST">
+                            <input type="hidden" name="_subject" value="New Strategic Inquiry - FaridStrategy.com">
+                            <input type="hidden" name="_format" value="plain">
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="name">Your Name *</label>
+                                    <input type="text" id="name" name="name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Your Email *</label>
+                                    <input type="email" id="email" name="_replyto" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="subject">Subject *</label>
+                                <input type="text" id="subject" name="subject" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message">Your Message *</label>
+                                <textarea id="message" name="message" rows="4" required></textarea>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary btn-block">
+                                <span>Send Message</span>
+                                <i class="fas fa-paper-plane"></i>
                             </button>
-                            <p class="form-note">Your message will be sent directly to my email</p>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="main-footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-brand">
-                    <h3>FaridStrategy.com</h3>
-                    <p>Where strategy meets progress</p>
+                    <div class="logo">
+                        <div class="logo-mark">GF</div>
+                        <div class="logo-text">
+                            <span class="logo-name">Ghulam Farid</span>
+                            <span class="logo-title">Business Strategy Analyst</span>
+                        </div>
+                    </div>
+                    <p class="footer-tagline">Where strategy meets progress</p>
                 </div>
                 
                 <div class="footer-links">
-                    <a href="#home">Home</a>
-                    <a href="#articles">Articles</a>
-                    <a href="#case-studies">Case Studies</a>
-                    <a href="#about">About</a>
-                    <a href="#feedback">Feedback</a>
-                    <a href="#contact">Contact</a>
+                    <div class="link-group">
+                        <h4>Navigation</h4>
+                        <a href="#home">Home</a>
+                        <a href="#approach">Approach</a>
+                        <a href="#expertise">Expertise</a>
+                        <a href="#insights">Insights</a>
+                        <a href="#contact">Contact</a>
+                    </div>
+                    
+                    <div class="link-group">
+                        <h4>Services</h4>
+                        <span>Business Strategy</span>
+                        <span>Market Analysis</span>
+                        <span>Competitive Intelligence</span>
+                        <span>Strategic Planning</span>
+                    </div>
                 </div>
                 
                 <div class="footer-cta">
-                    <p>Ready to transform your business strategy?</p>
-                    <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+                    <h4>Ready to transform your strategy?</h4>
+                    <a href="#contact" class="btn btn-secondary">
+                        <span>Start a Project</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2024 Ghulam Farid. All rights reserved. | Business Strategy Analyst</p>
+                <p>&copy; 2024 Ghulam Farid. All rights reserved.</p>
+                <p class="footer-site">FaridStrategy.com</p>
             </div>
         </div>
     </footer>
