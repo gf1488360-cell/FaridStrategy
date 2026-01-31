@@ -1,55 +1,475 @@
-<!-- Insights Section -->
-<section id="insights" class="insights-section">
-    <div class="container">
-        <div class="section-intro centered">
-            <span class="section-label">Strategic Insights</span>
-            <h2 class="section-title">Articles & Case Studies</h2>
-            <p class="section-subtitle">Analysis, frameworks, and real-world applications</p>
-        </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daraz vs Amazon: E-commerce Battle | Ghulam Farid</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600;700&family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Article specific styles */
+        .article-header {
+            background: linear-gradient(135deg, #1a365d 0%, #2d3748 100%);
+            color: white;
+            padding: 8rem 0 4rem;
+            position: relative;
+            overflow: hidden;
+        }
         
-        <div class="insights-grid">
-            <!-- Article Preview Card -->
-            <div class="insight-card">
-                <div class="insight-header">
-                    <span class="insight-type" style="background: rgba(66, 153, 225, 0.1); color: var(--secondary-color);">Featured Article</span>
-                    <h3>Daraz vs Amazon: The E-commerce Battle for Pakistan's Digital Future</h3>
+        .article-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.3);
+        }
+        
+        .article-meta {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+            color: rgba(255,255,255,0.8);
+            font-size: 0.9rem;
+        }
+        
+        .article-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .article-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .article-content {
+            padding: 4rem 0;
+            background: #ffffff;
+        }
+        
+        .article-hero-image {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            margin: 2rem 0;
+            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
+        }
+        
+        .article-section {
+            margin-bottom: 3rem;
+        }
+        
+        .article-section h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: #1a365d;
+            border-bottom: 3px solid #3182ce;
+            padding-bottom: 0.5rem;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .article-section h3 {
+            font-size: 1.5rem;
+            margin: 2rem 0 1rem;
+            color: #2b6cb0;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .article-section p {
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            color: #4a5568;
+            font-family: 'Source Sans Pro', sans-serif;
+            font-size: 1.1rem;
+        }
+        
+        .article-section ul, .article-section ol {
+            margin: 1.5rem 0;
+            padding-left: 1.5rem;
+        }
+        
+        .article-section li {
+            margin-bottom: 0.75rem;
+            line-height: 1.6;
+            color: #4a5568;
+        }
+        
+        .article-image {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 2rem 0;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+        }
+        
+        .key-takeaways {
+            background: #f7fafc;
+            border-left: 4px solid #2b6cb0;
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 3rem 0;
+        }
+        
+        .key-takeaways h3 {
+            color: #1a365d;
+            margin-top: 0;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .key-takeaways ul {
+            margin: 0;
+            padding-left: 1.5rem;
+        }
+        
+        .key-takeaways li {
+            margin-bottom: 1rem;
+        }
+        
+        .article-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid #e2e8f0;
+        }
+        
+        .nav-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 1.5rem;
+            background: #ffffff;
+            border: 2px solid #e2e8f0;
+            border-radius: 6px;
+            text-decoration: none;
+            color: #2d3748;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            font-family: 'Source Sans Pro', sans-serif;
+        }
+        
+        .nav-btn:hover {
+            border-color: #2b6cb0;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+        }
+        
+        .article-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 2rem;
+        }
+        
+        .article-tag {
+            background: rgba(66, 153, 225, 0.1);
+            color: #2b6cb0;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            font-family: 'Source Sans Pro', sans-serif;
+        }
+        
+        .section-label {
+            display: inline-block;
+            color: #2b6cb0;
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.75rem;
+            font-family: 'Source Sans Pro', sans-serif;
+        }
+        
+        @media (max-width: 768px) {
+            .article-header {
+                padding: 6rem 0 3rem;
+            }
+            
+            .article-section h2 {
+                font-size: 1.75rem;
+            }
+            
+            .article-section h3 {
+                font-size: 1.25rem;
+            }
+            
+            .key-takeaways {
+                padding: 1.5rem;
+            }
+            
+            .article-navigation {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .nav-btn {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .article-meta {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+        }
+        
+        /* Body padding for fixed nav */
+        body {
+            padding-top: 80px;
+        }
+        
+        /* Logo link styling */
+        .logo a {
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Announcement Bar -->
+    <div class="announcement-bar">
+        <div class="container">
+            <span class="announcement-text">Strategic Business Analysis & Consulting | Data-Driven Decision Making</span>
+        </div>
+    </div>
+
+    <!-- Main Navigation -->
+    <nav class="main-nav">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <a href="index.html">
+                        <div class="logo-mark">F.S</div>
+                        <div class="logo-text">
+                            <span class="logo-name">Ghulam Farid</span>
+                            <span class="logo-title">Business Strategy Analyst</span>
+                        </div>
+                    </a>
                 </div>
-                <div class="insight-content">
-                    <p>An in-depth analysis of Daraz's local dominance versus Amazon's global reach in Pakistan's fast growing e-commerce market. Strategic insights and data-driven comparison for businesses and consumers.</p>
-                    <div class="insight-tags">
-                        <span>E-commerce</span>
-                        <span>Market Analysis</span>
-                        <span>Digital Strategy</span>
-                        <span>Pakistan</span>
+                
+                <div class="nav-menu">
+                    <ul class="nav-list">
+                        <li><a href="index.html#home" class="nav-link">Home</a></li>
+                        <li><a href="index.html#approach" class="nav-link">Approach</a></li>
+                        <li><a href="index.html#expertise" class="nav-link">Expertise</a></li>
+                        <li><a href="index.html#insights" class="nav-link">Projects</a></li>
+                        <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+                    </ul>
+                    <a href="index.html#contact" class="nav-cta">
+                        <span>Start a project</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <button class="mobile-toggle" id="mobileToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Article Header -->
+    <header class="article-header">
+        <div class="container">
+            <div class="article-container">
+                <div class="section-label" style="color: rgba(255,255,255,0.8);">Strategic Analysis</div>
+                <h1 style="font-size: 3rem; color: white; margin: 1rem 0; font-family: 'Playfair Display', serif;">Daraz vs Amazon: The E-commerce Battle for Pakistan's Digital Future</h1>
+                <p style="font-size: 1.25rem; color: rgba(255,255,255,0.9); margin: 1.5rem 0; font-family: 'Source Sans Pro', sans-serif;">An analysis of Daraz's local dominance versus Amazon's global reach in Pakistan's fast growing e-commerce market.</p>
+                
+                <div class="article-meta">
+                    <div class="article-meta-item">
+                        <i class="fas fa-user"></i>
+                        <span>Ghulam Farid</span>
+                    </div>
+                    <div class="article-meta-item">
+                        <i class="fas fa-calendar"></i>
+                        <span>October 2024</span>
+                    </div>
+                    <div class="article-meta-item">
+                        <i class="fas fa-clock"></i>
+                        <span>10 min read</span>
                     </div>
                 </div>
-                <div class="insight-footer">
-                    <a href="daraz-vs-amazon.html" class="btn btn-primary" style="padding: 0.75rem 1.5rem; font-size: 0.9rem;">
-                        <span>Read Full Article</span>
+                
+                <div class="article-tags">
+                    <span class="article-tag">E-commerce</span>
+                    <span class="article-tag">Market Analysis</span>
+                    <span class="article-tag">Digital Strategy</span>
+                    <span class="article-tag">Pakistan</span>
+                    <span class="article-tag">Competitive Analysis</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Article Content -->
+    <main class="article-content">
+        <div class="container">
+            <div class="article-container">
+                <!-- Introduction -->
+                <section class="article-section">
+                    <h2>Introduction</h2>
+                    <p>Pakistan's digital economy is accelerating. With over 120 million internet users and a young, tech savvy population, the e-commerce sector is poised for transformation. Two players dominate the narrative: <strong>Daraz</strong>, the local champion acquired by Alibaba, and <strong>Amazon</strong>, the global titan making strategic inroads.</p>
+                    <p>This is not merely a marketplace competition. It is a battle of business models, logistics capabilities, and cultural adaptation. The winner will define how Pakistan shops online for the next decade.</p>
+                    
+                    <!-- Hero Image -->
+                    <img src="media/image1.jpeg" alt="E-commerce growth in Pakistan" class="article-hero-image" onerror="this.src='https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80'; this.alt='E-commerce illustration';">
+                </section>
+
+                <!-- Section 1 -->
+                <section class="article-section">
+                    <h2>1. Market Position and Strategic Footprint</h2>
+                    <p>Daraz holds first mover advantage. Established in Pakistan in 2012 and acquired by Alibaba in 2018, it is built for South Asia. Its strategy is hyper local: local languages, cash on delivery dominance, and dense vendor networks in major cities.</p>
+                    <p>Amazon's entry is more nuanced. It lacks a dedicated Pakistani marketplace but is a major player through its global platform. Sellers use Amazon to export goods abroad. Consumers with international payment methods import products. Amazon's footprint is digital and import export focused, not yet a full local logistics play.</p>
+                    
+                    <img src="media/image2.png" alt="Market position comparison" class="article-image" onerror="this.src='https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80'; this.alt='Data analysis illustration';">
+                </section>
+
+                <!-- Section 2 -->
+                <section class="article-section">
+                    <h2>2. Operational Battlefield: Logistics and Customer Trust</h2>
+                    <p>The core of e-commerce is delivery and trust. Daraz has invested heavily in its own logistics arm, <strong>Daraz Express</strong>. It built warehouses and last mile networks. This addresses Pakistan's infrastructure gaps. Its platform is optimized for lower average order values and high frequency purchases.</p>
+                    <p>Amazon relies on international couriers for cross border shipments into Pakistan. This results in higher costs and longer delivery times. Its advantage is <strong>trust in authenticity</strong> and a vast global catalog. For Pakistani sellers, Amazon's Fulfillment by Amazon system is a gateway to lucrative export markets, particularly the United States and UAE.</p>
+                </section>
+
+                <!-- Section 3 -->
+                <section class="article-section">
+                    <h2>3. The Future Battleground: Payments and Ecosystem</h2>
+                    <p>The fight is moving to fintech. Daraz integrates <strong>Daraz Wallet</strong> and promotes bank partnerships. It aims to shift consumers from cash to digital payments. Its app is evolving into a super app, incorporating video features and gaming.</p>
+                    <p>Amazon leverages its global payment infrastructure. Its key opportunity is facilitating <strong>easy cross border payments</strong> for Pakistani sellers and buyers. This is a significant hurdle in a currency controlled economy. The future may see Amazon partner with a local financial player to gain ground.</p>
+                    
+                    <img src="media/image3.png" alt="Payments and ecosystem comparison" class="article-image" onerror="this.src='https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80'; this.alt='Digital payments illustration';">
+                </section>
+
+                <!-- Key Takeaways -->
+                <section class="article-section">
+                    <div class="key-takeaways">
+                        <h3>Key Takeaways</h3>
+                        <ul>
+                            <li><strong>Daraz wins on local depth:</strong> It owns the last mile logistics and understands the cash driven, mobile first Pakistani consumer.</li>
+                            <li><strong>Amazon wins on global breadth:</strong> It is the default platform for export oriented sellers and consumers seeking international product authenticity.</li>
+                            <li><strong>The markets are currently segmented:</strong> They compete less directly, serving different primary needs: daily local commerce versus premium imported goods.</li>
+                            <li><strong>The convergence point is fintech:</strong> The platform that best solves digital payments and financial inclusion will gain a decisive, long term advantage.</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Conclusion -->
+                <section class="article-section">
+                    <h2>Conclusion and Call to Action</h2>
+                    <p>The battle for Pakistan's e-commerce is asymmetric. Daraz is building a localized fortress. Amazon is extending a global bridge. In the short term, coexistence is likely. In the long term, collision is inevitable as both platforms evolve.</p>
+                    <p><strong>For businesses and investors,</strong> the strategy is not either/or. A dual presence is optimal. Use Daraz for volume and domestic reach. Leverage Amazon for margin and global branding.</p>
+                    <p><strong>For consumers,</strong> enjoy the benefits of this competition. Expect better services, more choices, and increasing innovation. Your digital shopping habits will determine the victor.</p>
+                    <p>The ultimate call to action is strategic observation. Watch for Amazon's potential local partnerships. Monitor Daraz's fintech moves. In this battle, the biggest winner will be Pakistan's digital economy itself.</p>
+                </section>
+
+                <!-- Article Navigation -->
+                <div class="article-navigation">
+                    <a href="index.html#insights" class="nav-btn">
+                        <i class="fas fa-arrow-left"></i>
+                        <span>Back to Articles</span>
+                    </a>
+                    <a href="index.html#contact" class="nav-btn">
+                        <span>Schedule Consultation</span>
+                        <i class="fas fa-calendar"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <div class="logo-mark">F.S</div>
+                        <div class="logo-text">
+                            <span class="logo-title">Ghulam Farid</span>
+                            <span class="logo-title">Business Strategy Analyst</span>
+                        </div>
+                    </div>
+                    <p class="footer-tagline">Where strategy meets progress</p>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="link-group">
+                        <h4>Navigation</h4>
+                        <a href="index.html#home">Home</a>
+                        <a href="index.html#approach">Approach</a>
+                        <a href="index.html#expertise">Expertise</a>
+                        <a href="index.html#insights">Projects</a>
+                        <a href="index.html#contact">Contact</a>
+                    </div>
+                    
+                    <div class="link-group">
+                        <h4>Services</h4>
+                        <span>Business Strategy</span>
+                        <span>Market Analysis</span>
+                        <span>Competitive Intelligence</span>
+                        <span>Strategic Planning</span>
+                    </div>
+                </div>
+                
+                <div class="footer-cta">
+                    <h4>Ready to transform your strategy?</h4>
+                    <a href="index.html#contact" class="btn btn-secondary">
+                        <span>Start a Project</span>
                         <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
             </div>
             
-            <!-- Keep the Case Studies card -->
-            <div class="insight-card">
-                <div class="insight-header">
-                    <span class="insight-type">Coming Soon</span>
-                    <h3>Case Studies</h3>
-                </div>
-                <div class="insight-content">
-                    <p>Detailed real-world applications of strategic frameworks to complex business challenges across industries.</p>
-                    <div class="insight-tags">
-                        <span>Porter's Analysis</span>
-                        <span>SWOT Analysis</span>
-                        <span>Market Entry</span>
-                        <span>Operations Strategy</span>
-                    </div>
-                </div>
-                <div class="insight-footer">
-                    <span class="insight-status">In Development</span>
-                </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Ghulam Farid. All rights reserved.</p>
+                <p class="footer-site">FaridStrategy.com</p>
             </div>
         </div>
-    </div>
-</section>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu toggle
+            const mobileToggle = document.getElementById('mobileToggle');
+            const navMenu = document.querySelector('.nav-menu');
+            
+            if (mobileToggle) {
+                mobileToggle.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                    navMenu.classList.toggle('active');
+                });
+            }
+            
+            // Highlight active nav link
+            const currentPage = window.location.pathname.split('/').pop();
+            if (currentPage === 'daraz-vs-amazon.html') {
+                document.querySelectorAll('.nav-link').forEach(link => {
+                    link.classList.remove('active');
+                });
+                const insightsLink = document.querySelector('a[href*="insights"]');
+                if (insightsLink) {
+                    insightsLink.classList.add('active');
+                }
+            }
+        });
+    </script>
+</body>
+</html>
