@@ -388,3 +388,31 @@ document.addEventListener('DOMContentLoaded', () => {
         document.head.appendChild(style);
     }
 });
+// Quick fix for always visible navigation
+document.addEventListener('DOMContentLoaded', function() {
+    // Force navigation to always be visible
+    const nav = document.querySelector('.main-nav');
+    if (nav) {
+        nav.style.position = 'fixed';
+        nav.style.top = '0';
+        nav.style.left = '0';
+        nav.style.right = '0';
+        nav.style.transform = 'translateY(0)';
+        nav.style.opacity = '1';
+        nav.style.visibility = 'visible';
+        nav.style.zIndex = '1000';
+    }
+    
+    // Add body padding
+    document.body.style.paddingTop = '80px';
+    
+    // Force desktop menu visibility
+    if (window.innerWidth >= 993) {
+        const navMenu = document.querySelector('.nav-menu');
+        if (navMenu) {
+            navMenu.style.display = 'flex';
+            navMenu.style.opacity = '1';
+            navMenu.style.visibility = 'visible';
+        }
+    }
+});
