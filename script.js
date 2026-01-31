@@ -3,7 +3,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize components
     initMenuToggle();
     initSmoothScroll();
-    initFormLinks();
+    initFormInteractions();
+    initFeedbackForm();
+    initContactForm();
     
     // Show a welcome message in console
     console.log("FaridStrategy.com | Business Strategy Analyst Portfolio");
@@ -91,33 +93,147 @@ function setActiveNavLink() {
     });
 }
 
-// Initialize form links with instructions
-function initFormLinks() {
-    const googleFormLinks = document.querySelectorAll('.google-form-btn');
+// Initialize form interactions
+function initFormInteractions() {
+    // Show/hide specific item field based on feedback type
+    const feedbackType = document.getElementById('feedbackType');
+    const specificItemGroup = document.getElementById('specificItemGroup');
     
-    googleFormLinks.forEach(link => {
-        // Add click effect
-        link.addEventListener('mousedown', function() {
-            this.style.transform = 'scale(0.95)';
-        });
-        
-        link.addEventListener('mouseup', function() {
-            this.style.transform = '';
-        });
-        
-        link.addEventListener('mouseleave', function() {
-            this.style.transform = '';
-        });
-        
-        // Add click event to show alert if links are not updated
-        link.addEventListener('click', function(e) {
-            const href = this.getAttribute('href');
-            if (href.includes('YOUR_GOOGLE_FORM_LINK_HERE')) {
-                e.preventDefault();
-                alert('Please update the Google Form links in the HTML code.\n\nTo get your Google Form link:\n1. Go to forms.google.com\n2. Create a new form\n3. Click "Send"\n4. Copy the link\n5. Replace "YOUR_GOOGLE_FORM_LINK_HERE" with your actual link');
+    if (feedbackType && specificItemGroup) {
+        feedbackType.addEventListener('change', function() {
+            if (this.value === 'case-study' || this.value === 'article') {
+                specificItemGroup.style.display = 'block';
+                document.getElementById('specificItem').required = true;
+            } else {
+                specificItemGroup.style.display = 'none';
+                document.getElementById('specificItem').required = false;
             }
         });
-    });
+    }
+}
+
+// Initialize feedback form
+function initFeedbackForm() {
+    const feedbackForm = document.getElementById('feedbackForm');
+    
+    if (feedbackForm) {
+        feedbackForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('reviewerName').value.trim();
+            const email = document.getElementById('reviewerEmail').value.trim();
+            const feedbackType = document.getElementById('feedbackType').value;
+            const specificItem = document.getElementById('specificItem').value.trim();
+            const rating = document.querySelector('input[name="rating"]:checked');
+            const feedback = document.getElementById('reviewContent').value.trim();
+            
+            // Validate form
+            if (!name || !email || !feedback) {
+                alert('Please fill in all required fields (Name, Email, and Feedback).');
+                return;
+            }
+            
+            // Validate email format
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert('Please enter a valid email address.');
+                return;
+            }
+            
+            // Create email content
+            let subject = `New Feedback from ${name}`;
+            if (feedbackType === 'case-study' || feedbackType === 'article') {
+                subject += ` - Regarding: ${specificItem}`;
+            }
+            
+            let body = `Feedback Details:\n\n`;
+            body += `Name: ${name}\n`;
+            body += `Email: ${email}\n`;
+            body += `Feedback Type: ${feedbackType}\n`;
+            
+            if (feedbackType === 'case-study' || feedbackType === 'article') {
+                body += `Specific Item: ${specificItem}\n`;
+            }
+            
+            if (rating) {
+                body += `Rating: ${rating.value}/5\n`;
+            }
+            
+            body += `\nFeedback:\n${feedback}\n\n`;
+            body += `---\nSent from FaridStrategy.com`;
+            
+            // Send email (using mailto for now - in production, you'd use a backend service)
+            const mailtoLink = `mailto:gf1488360@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            
+            // Show success message
+            alert('Thank you for your feedback! A draft email has been prepared. Click OK to open your email client and send it to me.');
+            
+            // Open email client
+            window.location.href = mailtoLink;
+            
+            // Optional: Reset form after submission
+            setTimeout(() => {
+                feedbackForm.reset();
+                if (specificItemGroup) {
+                    specificItemGroup.style.display = 'none';
+                }
+            }, 1000);
+        });
+    }
+}
+
+// Initialize contact form
+function initContactForm() {
+    const contactForm = document.getElementById('contactForm');
+    
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('contactName').value.trim();
+            const email = document.getElementById('contactEmail').value.trim();
+            const subject = document.getElementById('contactSubject').value.trim();
+            const message = document.getElementById('contactMessage').value.trim();
+            
+            // Validate form
+            if (!name || !email || !subject || !message) {
+                alert('Please fill in all required fields.');
+                return;
+            }
+            
+            // Validate email format
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert('Please enter a valid email address.');
+                return;
+            }
+            
+            // Create email content
+            const emailSubject = `Contact Form: ${subject}`;
+            let emailBody = `Contact Form Submission Details:\n\n`;
+            emailBody += `Name: ${name}\n`;
+            emailBody += `Email: ${email}\n`;
+            emailBody += `Subject: ${subject}\n\n`;
+            emailBody += `Message:\n${message}\n\n`;
+            emailBody += `---\nSent from FaridStrategy.com`;
+            
+            // Send email (using mailto for now - in production, you'd use a backend service)
+            const mailtoLink = `mailto:gf1488360@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+            
+            // Show success message
+            alert('Thank you for your message! A draft email has been prepared. Click OK to open your email client and send it to me.');
+            
+            // Open email client
+            window.location.href = mailtoLink;
+            
+            // Optional: Reset form after submission
+            setTimeout(() => {
+                contactForm.reset();
+            }, 1000);
+        });
+    }
 }
 
 // Add some interactivity to value propositions
@@ -138,11 +254,11 @@ document.addEventListener('DOMContentLoaded', function() {
     setActiveNavLink();
 });
 
-// Email obfuscation protection (optional)
-function protectEmail() {
+// Copy email to clipboard functionality
+function initEmailCopy() {
     const emailElement = document.querySelector('.contact-item span');
     if (emailElement && emailElement.textContent === 'gf1488360@gmail.com') {
-        // Email is already visible, but you could add click-to-copy functionality
+        // Add click-to-copy functionality
         emailElement.style.cursor = 'pointer';
         emailElement.title = 'Click to copy email';
         
@@ -161,5 +277,5 @@ function protectEmail() {
     }
 }
 
-// Call email protection function
-protectEmail();
+// Initialize email copy on page load
+initEmailCopy();
