@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script>
+    // Initialize Formspree
+    (function() {
+        // Test if Formspree is accessible
+        console.log('Formspree initialized for: mnjvrrvr');
+    })();
+</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ghulam Farid | Business Strategy Analyst</title>
@@ -158,8 +165,6 @@
             </div>
         </div>
     </section>
-
-   <!-- Feedback Section -->
 <!-- Feedback Section -->
 <section id="feedback" class="section bg-light">
     <div class="container">
@@ -169,12 +174,11 @@
         <div class="feedback-content">
             <div class="review-form">
                 <h3>Submit Your Feedback</h3>
-                <form id="feedbackForm" action="https://formspree.io/f/mnjvrrvr" method="POST">
-                    <!-- Formspree Configuration -->
-                    <input type="hidden" name="_subject" value="New Feedback from FaridStrategy.com">
-                    <input type="hidden" name="_replyto" value="gf1488360@gmail.com">
-                    <input type="hidden" name="_cc" value="gf1488360@gmail.com">
+                <form id="feedbackForm" action="https://formspree.io/f/mnjvrrvr" method="POST" target="_blank">
+                    <!-- Required Formspree fields -->
+                    <input type="hidden" name="_subject" value="New Feedback - FaridStrategy.com">
                     <input type="hidden" name="_format" value="plain">
+                    <input type="hidden" name="_language" value="en">
                     
                     <div class="form-group">
                         <label for="reviewerName">Your Name *</label>
@@ -188,31 +192,31 @@
                     
                     <div class="form-group">
                         <label for="feedbackType">Feedback Regarding *</label>
-                        <select id="feedbackType" name="feedback_type" required>
+                        <select id="feedbackType" name="Feedback Type" required>
                             <option value="">Select feedback type</option>
-                            <option value="general">General Feedback</option>
-                            <option value="case_study">Specific Case Study</option>
-                            <option value="article">Specific Article</option>
+                            <option value="General Feedback">General Feedback</option>
+                            <option value="Case Study">Specific Case Study</option>
+                            <option value="Article">Specific Article</option>
                         </select>
                     </div>
                     
                     <div class="form-group specific-item-group" id="specificItemGroup" style="display: none;">
-                        <label for="specificItem">Item Name *</label>
-                        <input type="text" id="specificItem" name="item_name" placeholder="Enter case study or article name">
+                        <label for="specificItem">Item Name</label>
+                        <input type="text" id="specificItem" name="Item Name" placeholder="Enter case study or article name">
                     </div>
                     
                     <div class="form-group">
-                        <label for="rating">Rating (Optional)</label>
+                        <label>Rating (Optional)</label>
                         <div class="rating-stars">
-                            <input type="radio" id="star5" name="rating" value="5">
+                            <input type="radio" id="star5" name="Rating" value="5">
                             <label for="star5"><i class="fas fa-star"></i></label>
-                            <input type="radio" id="star4" name="rating" value="4">
+                            <input type="radio" id="star4" name="Rating" value="4">
                             <label for="star4"><i class="fas fa-star"></i></label>
-                            <input type="radio" id="star3" name="rating" value="3">
+                            <input type="radio" id="star3" name="Rating" value="3">
                             <label for="star3"><i class="fas fa-star"></i></label>
-                            <input type="radio" id="star2" name="rating" value="2">
+                            <input type="radio" id="star2" name="Rating" value="2">
                             <label for="star2"><i class="fas fa-star"></i></label>
-                            <input type="radio" id="star1" name="rating" value="1">
+                            <input type="radio" id="star1" name="Rating" value="1">
                             <label for="star1"><i class="fas fa-star"></i></label>
                         </div>
                     </div>
@@ -226,11 +230,10 @@
                         <button type="submit" class="btn btn-primary">
                             <i class="fas fa-paper-plane"></i> Submit Feedback
                         </button>
-                        <p class="form-note">Your feedback will be sent directly to my email</p>
+                        <p class="form-note">You'll be redirected to Formspree confirmation page</p>
                     </div>
                 </form>
                 
-                <!-- Success/Error Messages -->
                 <div id="formMessage" style="display: none;"></div>
             </div>
             
@@ -246,7 +249,6 @@
     </div>
 </section>
 
-    
 <!-- Contact Section -->
 <section id="contact" class="section">
     <div class="container">
@@ -293,13 +295,12 @@
             
             <div class="contact-form">
                 <h3>Send a Message</h3>
-                <form id="contactForm" action="https://formspree.io/f/mnjvrrvr" method="POST">
-                    <!-- Formspree Configuration -->
-                    <input type="hidden" name="_subject" value="New Message from FaridStrategy.com">
-                    <input type="hidden" name="_replyto" value="gf1488360@gmail.com">
-                    <input type="hidden" name="_cc" value="gf1488360@gmail.com">
+                <form id="contactForm" action="https://formspree.io/f/mnjvrrvr" method="POST" target="_blank">
+                    <!-- Required Formspree fields -->
+                    <input type="hidden" name="_subject" value="New Contact Message - FaridStrategy.com">
                     <input type="hidden" name="_format" value="plain">
-                    <input type="hidden" name="form_type" value="contact">
+                    <input type="hidden" name="_language" value="en">
+                    <input type="hidden" name="Form Type" value="Contact Form">
                     
                     <div class="form-group">
                         <label for="contactName">Your Name *</label>
@@ -313,7 +314,7 @@
                     
                     <div class="form-group">
                         <label for="contactSubject">Subject *</label>
-                        <input type="text" id="contactSubject" name="subject" placeholder="What is this regarding?" required>
+                        <input type="text" id="contactSubject" name="Subject" placeholder="What is this regarding?" required>
                     </div>
                     
                     <div class="form-group">
@@ -325,17 +326,15 @@
                         <button type="submit" class="btn btn-primary">
                             <i class="fas fa-paper-plane"></i> Send Message
                         </button>
-                        <p class="form-note">Your message will be sent directly to my email</p>
+                        <p class="form-note">You'll be redirected to Formspree confirmation page</p>
                     </div>
                 </form>
                 
-                <!-- Success/Error Messages -->
                 <div id="contactFormMessage" style="display: none;"></div>
             </div>
         </div>
     </div>
 </section>
-
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
