@@ -79,20 +79,6 @@ h1, h2, h3, h4 {
     color: var(--white);
 }
 
-.google-form-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    background-color: #4285F4;
-    color: white;
-    border: none;
-}
-
-.google-form-btn:hover {
-    background-color: #3367D6;
-    color: white;
-}
-
 /* Top Bar */
 .top-bar {
     background-color: var(--primary-color);
@@ -188,20 +174,42 @@ h1, h2, h3, h4 {
 .hero-title {
     font-size: 3rem;
     margin-bottom: 20px;
+    line-height: 1.2;
 }
 
 .hero-subtitle {
     font-size: 1.2rem;
-    margin-bottom: 50px;
+    margin-bottom: 40px;
     color: var(--gray);
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
 }
 
+.philosophy-section {
+    background-color: var(--white);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    margin: 40px auto 50px;
+    box-shadow: var(--box-shadow);
+    max-width: 900px;
+}
+
+.philosophy-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: var(--primary-color);
+}
+
+.philosophy-text {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--text-color);
+}
+
 .value-propositions {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
     margin: 60px 0;
 }
@@ -212,6 +220,7 @@ h1, h2, h3, h4 {
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
     transition: var(--transition);
+    text-align: left;
 }
 
 .value-prop:hover {
@@ -410,14 +419,82 @@ h1, h2, h3, h4 {
 }
 
 .review-form h3, .reviews-list h3 {
-    margin-bottom: 20px;
+    margin-bottom: 25px;
     font-size: 1.5rem;
     color: var(--primary-color);
 }
 
-.review-form p {
-    margin-bottom: 20px;
-    color: var(--gray);
+/* Form Styles */
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid var(--light-gray);
+    border-radius: var(--border-radius);
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    transition: var(--transition);
+    background-color: var(--white);
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 3px rgba(241, 196, 15, 0.1);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #aaa;
+}
+
+/* Rating Stars */
+.rating-stars {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    gap: 5px;
+}
+
+.rating-stars input {
+    display: none;
+}
+
+.rating-stars label {
+    font-size: 1.5rem;
+    color: var(--light-gray);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.rating-stars input:checked ~ label,
+.rating-stars label:hover,
+.rating-stars label:hover ~ label {
+    color: var(--secondary-color);
+}
+
+.form-submit {
+    margin-top: 30px;
+}
+
+.form-submit button {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .form-note {
@@ -516,11 +593,6 @@ h1, h2, h3, h4 {
     font-size: 0.95rem;
 }
 
-.contact-form p {
-    margin-bottom: 25px;
-    color: var(--gray);
-}
-
 /* Footer */
 .footer {
     background-color: var(--primary-color);
@@ -575,7 +647,10 @@ h1, h2, h3, h4 {
     }
     
     .value-propositions {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr;
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
     }
     
     .feedback-content, .contact-content {
@@ -613,8 +688,8 @@ h1, h2, h3, h4 {
         font-size: 2rem;
     }
     
-    .value-propositions {
-        grid-template-columns: 1fr;
+    .philosophy-section {
+        padding: 20px;
     }
     
     .footer-content {
@@ -626,6 +701,10 @@ h1, h2, h3, h4 {
     .footer-links {
         flex-wrap: wrap;
         justify-content: center;
+    }
+    
+    .review-form, .reviews-list, .contact-info, .contact-form {
+        padding: 25px;
     }
 }
 
@@ -643,7 +722,7 @@ h1, h2, h3, h4 {
         text-align: center;
     }
     
-    .review-form, .reviews-list, .contact-info, .contact-form {
-        padding: 25px;
+    .philosophy-text {
+        font-size: 1rem;
     }
 }
