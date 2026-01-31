@@ -43,32 +43,31 @@
     <section id="home" class="hero">
         <div class="container">
             <div class="hero-content">
-                <h1 class="hero-title">Where <span class="highlight">Data Intelligence</span> Meets <span class="highlight">Business Strategy</span></h1>
+                <h1 class="hero-title">Where Data Intelligence Meets <span class="highlight">Business Strategy</span></h1>
                 <p class="hero-subtitle">Transforming complex business challenges into actionable, data-driven strategies that deliver measurable results and sustainable growth.</p>
+                
+                <div class="philosophy-section">
+                    <h2>My Professional Philosophy</h2>
+                    <p class="philosophy-text">I believe in evidence-based decision making where every strategy is rooted in data, validated by rigorous analysis, and executed with precision to create sustainable competitive advantages and drive organizational success.</p>
+                </div>
                 
                 <div class="value-propositions">
                     <div class="value-prop">
-                        <i class="fas fa-bullseye"></i>
-                        <h3>Professional Philosophy</h3>
-                        <p>Believe in evidence-based decision making where every strategy is rooted in data, validated by analysis, and executed with precision.</p>
-                    </div>
-                    
-                    <div class="value-prop">
                         <i class="fas fa-eye"></i>
                         <h3>Vision</h3>
-                        <p>To become the bridge between raw data and strategic execution, helping organizations navigate complexity with clarity and confidence.</p>
+                        <p>To bridge the gap between analytical insights and strategic execution, helping organizations navigate complexity with clarity and confidence to achieve their long-term objectives.</p>
                     </div>
                     
                     <div class="value-prop">
                         <i class="fas fa-chess-board"></i>
                         <h3>Strategy</h3>
-                        <p>Combine analytical frameworks with industry insights to develop competitive advantages that are both innovative and implementable.</p>
+                        <p>Develop innovative yet practical strategic frameworks that combine market intelligence, competitive analysis, and operational efficiency to create measurable business impact.</p>
                     </div>
                     
                     <div class="value-prop">
                         <i class="fas fa-cogs"></i>
                         <h3>Implementation</h3>
-                        <p>Focus on practical execution with clear roadmaps, measurable KPIs, and continuous optimization for maximum impact.</p>
+                        <p>Focus on practical execution with clear roadmaps, defined KPIs, and continuous optimization to ensure strategies deliver tangible results and sustainable growth.</p>
                     </div>
                 </div>
                 
@@ -134,13 +133,13 @@
             <div class="about-content">
                 <div class="about-text">
                     <h3>Who I Am</h3>
-                    <p>I'm a Business Strategy Analyst specializing in transforming complex data into actionable business strategies. My expertise lies in bridging the gap between analytical insights and practical business decisions.</p>
+                    <p>I'm a Business Strategy Analyst specializing in transforming complex data into actionable business strategies. My expertise lies in bridging the gap between analytical insights and practical business decisions to drive growth and efficiency.</p>
                     
                     <h3>What I Do</h3>
-                    <p>I analyze market dynamics, evaluate competitive landscapes, and develop strategic roadmaps that drive growth and improve operational efficiency. Using data-driven frameworks, I help organizations make informed decisions that create sustainable competitive advantages.</p>
+                    <p>I analyze market dynamics, evaluate competitive landscapes, and develop strategic roadmaps using data-driven frameworks. My approach ensures organizations make informed decisions that create sustainable competitive advantages.</p>
                     
                     <h3>Why Choose Me</h3>
-                    <p>I combine rigorous analytical skills with deep business acumen, ensuring that every strategy is not only theoretically sound but also practically executable. My approach focuses on measurable outcomes and tangible business impact.</p>
+                    <p>I combine rigorous analytical skills with deep business acumen, ensuring every strategy is theoretically sound and practically executable. My focus remains on delivering measurable outcomes and tangible business impact.</p>
                     
                     <h3>Core Competencies</h3>
                     <div class="competencies">
@@ -163,17 +162,66 @@
     <!-- Feedback Section -->
     <section id="feedback" class="section bg-light">
         <div class="container">
-            <h2 class="section-title">Feedback & <span class="highlight">Reviews</span></h2>
-            <p class="section-subtitle">Share your thoughts or read what others have experienced</p>
+            <h2 class="section-title">Share Your <span class="highlight">Feedback</span></h2>
+            <p class="section-subtitle">Your insights help me improve and deliver better value</p>
             
             <div class="feedback-content">
                 <div class="review-form">
                     <h3>Submit Your Feedback</h3>
-                    <p>Your feedback helps me improve. Please use the Google Form below to share your thoughts.</p>
-                    <a href="https://forms.gle/YOUR_GOOGLE_FORM_LINK_HERE" target="_blank" class="btn btn-primary google-form-btn">
-                        <i class="fab fa-google"></i> Submit via Google Form
-                    </a>
-                    <p class="form-note">You'll be redirected to a secure Google Form to submit your feedback.</p>
+                    <form id="feedbackForm">
+                        <div class="form-group">
+                            <label for="reviewerName">Your Name *</label>
+                            <input type="text" id="reviewerName" placeholder="Enter your full name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="reviewerEmail">Your Email *</label>
+                            <input type="email" id="reviewerEmail" placeholder="Enter your email address" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="feedbackType">Feedback Regarding *</label>
+                            <select id="feedbackType" required>
+                                <option value="">Select feedback type</option>
+                                <option value="general">General Feedback</option>
+                                <option value="case-study">Specific Case Study</option>
+                                <option value="article">Specific Article</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group specific-item-group" id="specificItemGroup" style="display: none;">
+                            <label for="specificItem">Item Name *</label>
+                            <input type="text" id="specificItem" placeholder="Enter case study or article name">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="rating">Rating (Optional)</label>
+                            <div class="rating-stars">
+                                <input type="radio" id="star5" name="rating" value="5">
+                                <label for="star5"><i class="fas fa-star"></i></label>
+                                <input type="radio" id="star4" name="rating" value="4">
+                                <label for="star4"><i class="fas fa-star"></i></label>
+                                <input type="radio" id="star3" name="rating" value="3">
+                                <label for="star3"><i class="fas fa-star"></i></label>
+                                <input type="radio" id="star2" name="rating" value="2">
+                                <label for="star2"><i class="fas fa-star"></i></label>
+                                <input type="radio" id="star1" name="rating" value="1">
+                                <label for="star1"><i class="fas fa-star"></i></label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="reviewContent">Your Feedback *</label>
+                            <textarea id="reviewContent" rows="5" placeholder="Please share your detailed feedback..." required></textarea>
+                        </div>
+                        
+                        <div class="form-submit">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-paper-plane"></i> Submit Feedback
+                            </button>
+                            <p class="form-note">Your feedback will be sent directly to me via email</p>
+                        </div>
+                    </form>
                 </div>
                 
                 <div class="reviews-list">
@@ -181,7 +229,7 @@
                     <div class="no-reviews">
                         <i class="far fa-comment-alt"></i>
                         <h4>Reviews Currently Not Available</h4>
-                        <p>Be the first to share your experience! Use the Google Form to submit your review.</p>
+                        <p>Be the first to share your experience! Your feedback will appear here once submitted.</p>
                     </div>
                 </div>
             </div>
@@ -234,11 +282,34 @@
                 
                 <div class="contact-form">
                     <h3>Send a Message</h3>
-                    <p>For project inquiries or discussions, please use the Google Form below.</p>
-                    <a href="https://forms.gle/YOUR_CONTACT_FORM_LINK_HERE" target="_blank" class="btn btn-primary google-form-btn">
-                        <i class="fab fa-google"></i> Contact via Google Form
-                    </a>
-                    <p class="form-note">This will open a Google Form where you can submit your inquiry securely.</p>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="contactName">Your Name *</label>
+                            <input type="text" id="contactName" placeholder="Enter your full name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="contactEmail">Your Email *</label>
+                            <input type="email" id="contactEmail" placeholder="Enter your email address" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="contactSubject">Subject *</label>
+                            <input type="text" id="contactSubject" placeholder="What is this regarding?" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="contactMessage">Your Message *</label>
+                            <textarea id="contactMessage" rows="5" placeholder="Please type your message here..." required></textarea>
+                        </div>
+                        
+                        <div class="form-submit">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-paper-plane"></i> Send Message
+                            </button>
+                            <p class="form-note">Your message will be sent directly to my email inbox</p>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
