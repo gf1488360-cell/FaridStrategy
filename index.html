@@ -159,83 +159,89 @@
         </div>
     </section>
 
-    <!-- Feedback Section -->
-    <section id="feedback" class="section bg-light">
-        <div class="container">
-            <h2 class="section-title">Share Your <span class="highlight">Feedback</span></h2>
-            <p class="section-subtitle">Your insights help me improve and deliver better value</p>
-            
-            <div class="feedback-content">
-                <div class="review-form">
-                    <h3>Submit Your Feedback</h3>
-                    <form id="feedbackForm">
-                        <div class="form-group">
-                            <label for="reviewerName">Your Name *</label>
-                            <input type="text" id="reviewerName" placeholder="Enter your full name" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="reviewerEmail">Your Email *</label>
-                            <input type="email" id="reviewerEmail" placeholder="Enter your email address" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="feedbackType">Feedback Regarding *</label>
-                            <select id="feedbackType" required>
-                                <option value="">Select feedback type</option>
-                                <option value="general">General Feedback</option>
-                                <option value="case-study">Specific Case Study</option>
-                                <option value="article">Specific Article</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group specific-item-group" id="specificItemGroup" style="display: none;">
-                            <label for="specificItem">Item Name *</label>
-                            <input type="text" id="specificItem" placeholder="Enter case study or article name">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="rating">Rating (Optional)</label>
-                            <div class="rating-stars">
-                                <input type="radio" id="star5" name="rating" value="5">
-                                <label for="star5"><i class="fas fa-star"></i></label>
-                                <input type="radio" id="star4" name="rating" value="4">
-                                <label for="star4"><i class="fas fa-star"></i></label>
-                                <input type="radio" id="star3" name="rating" value="3">
-                                <label for="star3"><i class="fas fa-star"></i></label>
-                                <input type="radio" id="star2" name="rating" value="2">
-                                <label for="star2"><i class="fas fa-star"></i></label>
-                                <input type="radio" id="star1" name="rating" value="1">
-                                <label for="star1"><i class="fas fa-star"></i></label>
-                            </div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="reviewContent">Your Feedback *</label>
-                            <textarea id="reviewContent" rows="5" placeholder="Please share your detailed feedback..." required></textarea>
-                        </div>
-                        
-                        <div class="form-submit">
-                            <button type="submit" class="btn btn-primary">
-                                <i class="fas fa-paper-plane"></i> Submit Feedback
-                            </button>
-                            <p class="form-note">I appreciate your feedback.</p>
-                        </div>
-                    </form>
-                </div>
-                
-                <div class="reviews-list">
-                    <h3>Client Reviews</h3>
-                    <div class="no-reviews">
-                        <i class="far fa-comment-alt"></i>
-                        <h4>Reviews Currently Not Available</h4>
-                        <p> Your feedback will appear here once submitted.</p>
+   <!-- Feedback Section -->
+<section id="feedback" class="section bg-light">
+    <div class="container">
+        <h2 class="section-title">Share Your <span class="highlight">Feedback</span></h2>
+        <p class="section-subtitle">Your insights help me improve and deliver better value</p>
+        
+        <div class="feedback-content">
+            <div class="review-form">
+                <h3>Submit Your Feedback</h3>
+                <form id="feedbackForm" action="https://formspree.io/f/mnjvrrvr" method="POST">
+                    <input type="hidden" name="_subject" value="New Feedback from FaridStrategy.com">
+                    <input type="hidden" name="_replyto" value="gf1488360@gmail.com">
+                    <input type="hidden" name="_cc" value="gf1488360@gmail.com">
+                    
+                    <div class="form-group">
+                        <label for="reviewerName">Your Name *</label>
+                        <input type="text" id="reviewerName" name="name" placeholder="Enter your full name" required>
                     </div>
+                    
+                    <div class="form-group">
+                        <label for="reviewerEmail">Your Email *</label>
+                        <input type="email" id="reviewerEmail" name="email" placeholder="Enter your email address" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="feedbackType">Feedback Regarding *</label>
+                        <select id="feedbackType" name="feedback_type" required>
+                            <option value="">Select feedback type</option>
+                            <option value="general">General Feedback</option>
+                            <option value="case_study">Specific Case Study</option>
+                            <option value="article">Specific Article</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group specific-item-group" id="specificItemGroup" style="display: none;">
+                        <label for="specificItem">Item Name *</label>
+                        <input type="text" id="specificItem" name="item_name" placeholder="Enter case study or article name">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="rating">Rating (Optional)</label>
+                        <div class="rating-stars">
+                            <input type="radio" id="star5" name="rating" value="5">
+                            <label for="star5"><i class="fas fa-star"></i></label>
+                            <input type="radio" id="star4" name="rating" value="4">
+                            <label for="star4"><i class="fas fa-star"></i></label>
+                            <input type="radio" id="star3" name="rating" value="3">
+                            <label for="star3"><i class="fas fa-star"></i></label>
+                            <input type="radio" id="star2" name="rating" value="2">
+                            <label for="star2"><i class="fas fa-star"></i></label>
+                            <input type="radio" id="star1" name="rating" value="1">
+                            <label for="star1"><i class="fas fa-star"></i></label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="reviewContent">Your Feedback *</label>
+                        <textarea id="reviewContent" name="message" rows="5" placeholder="Please share your detailed feedback..." required></textarea>
+                    </div>
+                    
+                    <div class="form-submit">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i> Submit Feedback
+                        </button>
+                        <p class="form-note">I appreciate your feedback.</p>
+                    </div>
+                    
+                    <!-- Formspree redirect -->
+                    <input type="hidden" name="_next" value="https://yourdomain.com/thank-you">
+                </form>
+            </div>
+            
+            <div class="reviews-list">
+                <h3>Client Reviews</h3>
+                <div class="no-reviews">
+                    <i class="far fa-comment-alt"></i>
+                    <h4>Reviews Currently Not Available</h4>
+                    <p> Your feedback will appear here once submitted.</p>
                 </div>
             </div>
         </div>
-    </section>
-
+    </div>
+</section>
     <!-- Contact Section -->
     <section id="contact" class="section">
         <div class="container">
