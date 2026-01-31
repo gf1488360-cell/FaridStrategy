@@ -1160,3 +1160,209 @@ html, body {
     max-width: 100%;
     overflow-x: hidden;
 }
+/* =============================== */
+/* ALWAYS VISIBLE NAVIGATION MODULE */
+/* =============================== */
+
+/* Main Navigation - Always Visible */
+.main-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: var(--white);
+    box-shadow: var(--shadow-md);
+    z-index: 1000;
+    padding: 1rem 0;
+    transition: var(--transition-base);
+    transform: translateY(0) !important; /* Force always visible */
+}
+
+/* Body padding to prevent content hiding under fixed nav */
+body {
+    padding-top: 90px; /* Height of nav + announcement bar */
+}
+
+/* Announcement bar stays above nav */
+.announcement-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1001; /* Above nav */
+}
+
+/* Adjust body padding when announcement bar is present */
+body.has-announcement {
+    padding-top: 120px; /* Nav + announcement bar height */
+}
+
+/* Desktop navigation - always visible */
+@media (min-width: 993px) {
+    .nav-menu {
+        display: flex !important; /* Force display on desktop */
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+    
+    .mobile-toggle {
+        display: none; /* Hide hamburger on desktop */
+    }
+    
+    /* Ensure nav links are always visible */
+    .nav-list {
+        display: flex !important;
+    }
+}
+
+/* Tablet/Mobile Navigation */
+@media (max-width: 992px) {
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 300px;
+        height: 100vh;
+        background: var(--white);
+        flex-direction: column;
+        padding: 5rem 2rem 2rem;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+        transition: var(--transition-base);
+        z-index: 999;
+        overflow-y: auto;
+    }
+    
+    .nav-menu.active {
+        right: 0;
+    }
+    
+    /* Show hamburger on mobile */
+    .mobile-toggle {
+        display: flex;
+        z-index: 1000;
+    }
+    
+    /* Mobile body padding adjustment */
+    body {
+        padding-top: 70px; /* Smaller nav on mobile */
+    }
+}
+
+/* Navigation States */
+.nav-scrolled {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Active Link Highlight */
+.nav-link.active {
+    color: var(--secondary-color);
+    position: relative;
+}
+
+.nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--gradient-blue);
+    border-radius: 2px;
+}
+
+/* Hover Effects */
+.nav-link:hover:not(.active) {
+    color: var(--text-primary);
+    transform: translateY(-1px);
+}
+
+/* Navigation CTA Button */
+.nav-cta {
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-cta::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: var(--transition-base);
+}
+
+.nav-cta:hover::before {
+    left: 100%;
+}
+
+/* Navigation Responsive Adjustments */
+@media (max-width: 1200px) {
+    .nav-list {
+        gap: 1.5rem;
+    }
+    
+    .nav-cta {
+        padding: 0.6rem 1.25rem;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 992px) {
+    /* Mobile menu overlay */
+    .nav-menu.active {
+        right: 0;
+    }
+    
+    /* Mobile menu backdrop */
+    .nav-menu::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: -1;
+        opacity: 0;
+        transition: var(--transition-base);
+    }
+    
+    .nav-menu.active::before {
+        opacity: 1;
+    }
+}
+
+/* Always Visible Desktop Menu */
+@media (min-width: 993px) {
+    /* Ensure menu never hides on desktop */
+    .nav-menu {
+        transform: none !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+    
+    /* Prevent any hiding effects */
+    .main-nav {
+        transform: translateY(0) !important;
+    }
+}
+
+/* Mobile Menu Always Accessible */
+@media (max-width: 992px) {
+    /* Make hamburger always visible */
+    .mobile-toggle {
+        position: fixed;
+        top: 1.5rem;
+        right: 1rem;
+        z-index: 1002;
+    }
+    
+    /* Adjust for announcement bar */
+    .has-announcement .mobile-toggle {
+        top: 3rem;
+    }
+}
