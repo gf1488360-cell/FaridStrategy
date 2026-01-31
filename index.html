@@ -160,6 +160,7 @@
     </section>
 
    <!-- Feedback Section -->
+<!-- Feedback Section -->
 <section id="feedback" class="section bg-light">
     <div class="container">
         <h2 class="section-title">Share Your <span class="highlight">Feedback</span></h2>
@@ -169,9 +170,11 @@
             <div class="review-form">
                 <h3>Submit Your Feedback</h3>
                 <form id="feedbackForm" action="https://formspree.io/f/mnjvrrvr" method="POST">
+                    <!-- Formspree Configuration -->
                     <input type="hidden" name="_subject" value="New Feedback from FaridStrategy.com">
                     <input type="hidden" name="_replyto" value="gf1488360@gmail.com">
                     <input type="hidden" name="_cc" value="gf1488360@gmail.com">
+                    <input type="hidden" name="_format" value="plain">
                     
                     <div class="form-group">
                         <label for="reviewerName">Your Name *</label>
@@ -180,7 +183,7 @@
                     
                     <div class="form-group">
                         <label for="reviewerEmail">Your Email *</label>
-                        <input type="email" id="reviewerEmail" name="email" placeholder="Enter your email address" required>
+                        <input type="email" id="reviewerEmail" name="_replyto" placeholder="Enter your email address" required>
                     </div>
                     
                     <div class="form-group">
@@ -223,26 +226,28 @@
                         <button type="submit" class="btn btn-primary">
                             <i class="fas fa-paper-plane"></i> Submit Feedback
                         </button>
-                        <p class="form-note">I appreciate your feedback.</p>
+                        <p class="form-note">Your feedback will be sent directly to my email</p>
                     </div>
-                    
-                    <!-- Formspree redirect -->
-                    <input type="hidden" name="_next" value="https://yourdomain.com/thank-you">
                 </form>
+                
+                <!-- Success/Error Messages -->
+                <div id="formMessage" style="display: none;"></div>
             </div>
             
             <div class="reviews-list">
-                <h3>Reviews</h3>
+                <h3>Client Reviews</h3>
                 <div class="no-reviews">
                     <i class="far fa-comment-alt"></i>
                     <h4>Reviews Currently Not Available</h4>
-                    <p> Your feedback will appear here once submitted.</p>
+                    <p>Be the first to share your experience! Your feedback will appear here once submitted.</p>
                 </div>
             </div>
         </div>
     </div>
 </section>
- <!-- Contact Section -->
+
+    
+<!-- Contact Section -->
 <section id="contact" class="section">
     <div class="container">
         <h2 class="section-title">Get in <span class="highlight">Touch</span></h2>
@@ -289,9 +294,11 @@
             <div class="contact-form">
                 <h3>Send a Message</h3>
                 <form id="contactForm" action="https://formspree.io/f/mnjvrrvr" method="POST">
+                    <!-- Formspree Configuration -->
                     <input type="hidden" name="_subject" value="New Message from FaridStrategy.com">
                     <input type="hidden" name="_replyto" value="gf1488360@gmail.com">
                     <input type="hidden" name="_cc" value="gf1488360@gmail.com">
+                    <input type="hidden" name="_format" value="plain">
                     <input type="hidden" name="form_type" value="contact">
                     
                     <div class="form-group">
@@ -301,7 +308,7 @@
                     
                     <div class="form-group">
                         <label for="contactEmail">Your Email *</label>
-                        <input type="email" id="contactEmail" name="email" placeholder="Enter your email address" required>
+                        <input type="email" id="contactEmail" name="_replyto" placeholder="Enter your email address" required>
                     </div>
                     
                     <div class="form-group">
@@ -318,12 +325,12 @@
                         <button type="submit" class="btn btn-primary">
                             <i class="fas fa-paper-plane"></i> Send Message
                         </button>
-                        <p class="form-note">I will answer you as soon as possible.</p>
+                        <p class="form-note">Your message will be sent directly to my email</p>
                     </div>
-                    
-                    <!-- Formspree redirect -->
-                    <input type="hidden" name="_next" value="https://yourdomain.com/thank-you">
                 </form>
+                
+                <!-- Success/Error Messages -->
+                <div id="contactFormMessage" style="display: none;"></div>
             </div>
         </div>
     </div>
