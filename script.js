@@ -4,8 +4,8 @@ document.addEventListener('DOMContentLoaded', function() {
     initMenuToggle();
     initSmoothScroll();
     initFormInteractions();
-    initFeedbackForm();
-    initContactForm();
+    initFormspreeForms();
+    initEmailCopy();
     
     // Show a welcome message in console
     console.log("FaridStrategy.com | Business Strategy Analyst Portfolio");
@@ -101,7 +101,7 @@ function initFormInteractions() {
     
     if (feedbackType && specificItemGroup) {
         feedbackType.addEventListener('change', function() {
-            if (this.value === 'case-study' || this.value === 'article') {
+            if (this.value === 'case_study' || this.value === 'article') {
                 specificItemGroup.style.display = 'block';
                 document.getElementById('specificItem').required = true;
             } else {
@@ -112,126 +112,203 @@ function initFormInteractions() {
     }
 }
 
-// Initialize feedback form
-function initFeedbackForm() {
+// Initialize Formspree forms
+function initFormspreeForms() {
+    // Feedback Form
     const feedbackForm = document.getElementById('feedbackForm');
-    
     if (feedbackForm) {
-        feedbackForm.addEventListener('submit', function(e) {
+        feedbackForm.addEventListener('submit', async function(e) {
             e.preventDefault();
             
-            // Get form values
-            const name = document.getElementById('reviewerName').value.trim();
-            const email = document.getElementById('reviewerEmail').value.trim();
-            const feedbackType = document.getElementById('feedbackType').value;
-            const specificItem = document.getElementById('specificItem').value.trim();
-            const rating = document.querySelector('input[name="rating"]:checked');
-            const feedback = document.getElementById('reviewContent').value.trim();
-            
-            // Validate form
-            if (!name || !email || !feedback) {
-                alert('Please fill in all required fields (Name, Email, and Feedback).');
+            if (!validateForm(this)) {
                 return;
             }
             
-            // Validate email format
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(email)) {
-                alert('Please enter a valid email address.');
-                return;
-            }
+            // Show loading state
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+            submitBtn.disabled = true;
             
-            // Create email content
-            let subject = `New Feedback from ${name}`;
-            if (feedbackType === 'case-study' || feedbackType === 'article') {
-                subject += ` - Regarding: ${specificItem}`;
-            }
-            
-            let body = `Feedback Details:\n\n`;
-            body += `Name: ${name}\n`;
-            body += `Email: ${email}\n`;
-            body += `Feedback Type: ${feedbackType}\n`;
-            
-            if (feedbackType === 'case-study' || feedbackType === 'article') {
-                body += `Specific Item: ${specificItem}\n`;
-            }
-            
-            if (rating) {
-                body += `Rating: ${rating.value}/5\n`;
-            }
-            
-            body += `\nFeedback:\n${feedback}\n\n`;
-            body += `---\nSent from FaridStrategy.com`;
-            
-            // Send email (using mailto for now - in production, you'd use a backend service)
-            const mailtoLink = `mailto:gf1488360@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-            
-            // Show success message
-            alert('Thank you for your feedback! A draft email has been prepared. Click OK to open your email client and send it to me.');
-            
-            // Open email client
-            window.location.href = mailtoLink;
-            
-            // Optional: Reset form after submission
-            setTimeout(() => {
-                feedbackForm.reset();
-                if (specificItemGroup) {
-                    specificItemGroup.style.display = 'none';
+            try {
+                const response = await fetch(this.action, {
+                    method: 'POST',
+                    body: new FormData(this),
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+                
+                if (response.ok) {
+                    showFormMessage('feedback', 'Thank you for your feedback! Your message has been sent successfully.', 'success');
+                    this.reset();
+                    
+                    // Reset specific item group
+                    const specificItemGroup = document.getElementById('specificItemGroup');
+                    if (specificItemGroup) {
+                        specificItemGroup.style.display = 'none';
+                    }
+                } else {
+                    const error = await response.json();
+                    showFormMessage('feedback', 'Sorry, there was an error. Please try again or email me directly at gf1488360@gmail.com', 'error');
+                    console.error('Formspree error:', error);
                 }
-            }, 1000);
+            } catch (error) {
+                showFormMessage('feedback', 'Network error. Please check your connection and try again.', 'error');
+                console.error('Network error:', error);
+            } finally {
+                // Reset button state
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            }
+        });
+    }
+    
+    // Contact Form
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+        contactForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            if (!validateForm(this)) {
+                return;
+            }
+            
+            // Show loading state
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+            submitBtn.disabled = true;
+            
+            try {
+                const response = await fetch(this.action, {
+                    method: 'POST',
+                    body: new FormData(this),
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+                
+                if (response.ok) {
+                    showFormMessage('contact', 'Thank you for your message! I will get back to you soon.', 'success');
+                    this.reset();
+                } else {
+                    const error = await response.json();
+                    showFormMessage('contact', 'Sorry, there was an error. Please try again or email me directly at gf1488360@gmail.com', 'error');
+                    console.error('Formspree error:', error);
+                }
+            } catch (error) {
+                showFormMessage('contact', 'Network error. Please check your connection and try again.', 'error');
+                console.error('Network error:', error);
+            } finally {
+                // Reset button state
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            }
         });
     }
 }
 
-// Initialize contact form
-function initContactForm() {
-    const contactForm = document.getElementById('contactForm');
+// Show form success/error messages
+function showFormMessage(formType, message, type) {
+    const messageId = formType === 'feedback' ? 'formMessage' : 'contactFormMessage';
+    const messageElement = document.getElementById(messageId);
     
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
+    if (messageElement) {
+        messageElement.textContent = message;
+        messageElement.className = type === 'success' ? 'form-success' : 'form-error';
+        messageElement.style.display = 'block';
+        
+        // Scroll to message
+        messageElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        
+        // Hide message after 10 seconds
+        setTimeout(() => {
+            messageElement.style.display = 'none';
+        }, 10000);
+    } else {
+        // Fallback alert
+        alert(message);
+    }
+}
+
+// Form validation
+function validateForm(form) {
+    const requiredFields = form.querySelectorAll('[required]');
+    let isValid = true;
+    
+    requiredFields.forEach(field => {
+        if (!field.value.trim()) {
+            field.style.borderColor = '#e74c3c';
+            isValid = false;
             
-            // Get form values
-            const name = document.getElementById('contactName').value.trim();
-            const email = document.getElementById('contactEmail').value.trim();
-            const subject = document.getElementById('contactSubject').value.trim();
-            const message = document.getElementById('contactMessage').value.trim();
-            
-            // Validate form
-            if (!name || !email || !subject || !message) {
-                alert('Please fill in all required fields.');
-                return;
-            }
-            
-            // Validate email format
+            // Remove error style when user starts typing
+            field.addEventListener('input', function() {
+                this.style.borderColor = '';
+            });
+        } else {
+            field.style.borderColor = '';
+        }
+    });
+    
+    // Special validation for email fields
+    const emailFields = form.querySelectorAll('input[type="email"]');
+    emailFields.forEach(field => {
+        if (field.value.trim()) {
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(email)) {
-                alert('Please enter a valid email address.');
-                return;
+            if (!emailRegex.test(field.value.trim())) {
+                field.style.borderColor = '#e74c3c';
+                showFormMessage('feedback', 'Please enter a valid email address.', 'error');
+                isValid = false;
             }
+        }
+    });
+    
+    if (!isValid) {
+        showFormMessage('feedback', 'Please fill in all required fields correctly.', 'error');
+    }
+    
+    return isValid;
+}
+
+// Copy email to clipboard
+function initEmailCopy() {
+    const emailElement = document.getElementById('emailText');
+    if (emailElement) {
+        emailElement.classList.add('click-to-copy');
+        emailElement.title = 'Click to copy email';
+        
+        emailElement.addEventListener('click', function() {
+            const email = this.textContent;
             
-            // Create email content
-            const emailSubject = `Contact Form: ${subject}`;
-            let emailBody = `Contact Form Submission Details:\n\n`;
-            emailBody += `Name: ${name}\n`;
-            emailBody += `Email: ${email}\n`;
-            emailBody += `Subject: ${subject}\n\n`;
-            emailBody += `Message:\n${message}\n\n`;
-            emailBody += `---\nSent from FaridStrategy.com`;
-            
-            // Send email (using mailto for now - in production, you'd use a backend service)
-            const mailtoLink = `mailto:gf1488360@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
-            
-            // Show success message
-            alert('Thank you for your message! A draft email has been prepared. Click OK to open your email client and send it to me.');
-            
-            // Open email client
-            window.location.href = mailtoLink;
-            
-            // Optional: Reset form after submission
-            setTimeout(() => {
-                contactForm.reset();
-            }, 1000);
+            navigator.clipboard.writeText(email).then(() => {
+                const originalText = this.textContent;
+                this.textContent = 'Copied!';
+                this.style.color = '#27ae60';
+                
+                setTimeout(() => {
+                    this.textContent = originalText;
+                    this.style.color = '';
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+                // Fallback: Create a temporary input element
+                const tempInput = document.createElement('input');
+                tempInput.value = email;
+                document.body.appendChild(tempInput);
+                tempInput.select();
+                document.execCommand('copy');
+                document.body.removeChild(tempInput);
+                
+                const originalText = this.textContent;
+                this.textContent = 'Copied!';
+                this.style.color = '#27ae60';
+                
+                setTimeout(() => {
+                    this.textContent = originalText;
+                    this.style.color = '';
+                }, 2000);
+            });
         });
     }
 }
@@ -253,29 +330,3 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize active nav link tracking
     setActiveNavLink();
 });
-
-// Copy email to clipboard functionality
-function initEmailCopy() {
-    const emailElement = document.querySelector('.contact-item span');
-    if (emailElement && emailElement.textContent === 'gf1488360@gmail.com') {
-        // Add click-to-copy functionality
-        emailElement.style.cursor = 'pointer';
-        emailElement.title = 'Click to copy email';
-        
-        emailElement.addEventListener('click', function() {
-            navigator.clipboard.writeText('gf1488360@gmail.com').then(() => {
-                const originalText = this.textContent;
-                this.textContent = 'Copied!';
-                this.style.color = 'var(--accent-color)';
-                
-                setTimeout(() => {
-                    this.textContent = originalText;
-                    this.style.color = '';
-                }, 2000);
-            });
-        });
-    }
-}
-
-// Initialize email copy on page load
-initEmailCopy();
