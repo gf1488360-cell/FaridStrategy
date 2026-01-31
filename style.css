@@ -1196,3 +1196,27 @@ body {
         z-index: 1001;
     }
 }
+
+
+/* Article Preview Card Specific Styles */
+.insight-card .btn-primary {
+    padding: 0.75rem 1.5rem !important;
+    font-size: 0.9rem !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+}
+
+.insight-card .btn-primary:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: var(--shadow-lg) !important;
+}
+
+/* Make sure article page navigation links work properly */
+.nav-link.active {
+    color: var(--secondary-color) !important;
+}
+
+.nav-link.active::after {
+    width: 100% !important;
+}
