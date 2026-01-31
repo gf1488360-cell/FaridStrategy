@@ -242,84 +242,92 @@
         </div>
     </div>
 </section>
-    <!-- Contact Section -->
-    <section id="contact" class="section">
-        <div class="container">
-            <h2 class="section-title">Get in <span class="highlight">Touch</span></h2>
-            <p class="section-subtitle">Let's discuss how strategic thinking can transform your business</p>
-            
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h3>Contact Information</h3>
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <div>
-                            <strong>Email</strong>
-                            <span>gf1488360@gmail.com</span>
-                        </div>
+ <!-- Contact Section -->
+<section id="contact" class="section">
+    <div class="container">
+        <h2 class="section-title">Get in <span class="highlight">Touch</span></h2>
+        <p class="section-subtitle">Let's discuss how strategic thinking can transform your business</p>
+        
+        <div class="contact-content">
+            <div class="contact-info">
+                <h3>Contact Information</h3>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <strong>Email</strong>
+                        <span id="emailText" class="click-to-copy">gf1488360@gmail.com</span>
                     </div>
-                    <div class="contact-item">
-                        <i class="fas fa-globe"></i>
-                        <div>
-                            <strong>Website</strong>
-                            <span>FaridStrategy.com</span>
-                        </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-globe"></i>
+                    <div>
+                        <strong>Website</strong>
+                        <span>FaridStrategy.com</span>
                     </div>
-                    <div class="contact-item">
-                        <i class="fas fa-phone"></i>
-                        <div>
-                            <strong>Mobile</strong>
-                            <span>+92 308 6007904</span>
-                        </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <div>
+                        <strong>Mobile</strong>
+                        <span>+92 308 6007904</span>
                     </div>
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div>
-                            <strong>Location</strong>
-                            <span>Lahore, Pakistan</span>
-                        </div>
-                    </div>
-                    
-                    <div class="availability">
-                        <h4>Availability</h4>
-                        <p>Available for consulting projects, strategic analysis work, and speaking engagements.</p>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <strong>Location</strong>
+                        <span>Lahore, Pakistan</span>
                     </div>
                 </div>
                 
-                <div class="contact-form">
-                    <h3>Send a Message</h3>
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <label for="contactName">Your Name *</label>
-                            <input type="text" id="contactName" placeholder="Enter your full name" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="contactEmail">Your Email *</label>
-                            <input type="email" id="contactEmail" placeholder="Enter your email address" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="contactSubject">Subject *</label>
-                            <input type="text" id="contactSubject" placeholder="What is this regarding?" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="contactMessage">Your Message *</label>
-                            <textarea id="contactMessage" rows="5" placeholder="Please type your message here..." required></textarea>
-                        </div>
-                        
-                        <div class="form-submit">
-                            <button type="submit" class="btn btn-primary">
-                                <i class="fas fa-paper-plane"></i> Send Message
-                            </button>
-                            <p class="form-note">Your message will be sent directly to my email inbox</p>
-                        </div>
-                    </form>
+                <div class="availability">
+                    <h4>Availability</h4>
+                    <p>Available for consulting projects, strategic analysis work, and speaking engagements.</p>
                 </div>
             </div>
+            
+            <div class="contact-form">
+                <h3>Send a Message</h3>
+                <form id="contactForm" action="https://formspree.io/f/mnjvrrvr" method="POST">
+                    <input type="hidden" name="_subject" value="New Message from FaridStrategy.com">
+                    <input type="hidden" name="_replyto" value="gf1488360@gmail.com">
+                    <input type="hidden" name="_cc" value="gf1488360@gmail.com">
+                    <input type="hidden" name="form_type" value="contact">
+                    
+                    <div class="form-group">
+                        <label for="contactName">Your Name *</label>
+                        <input type="text" id="contactName" name="name" placeholder="Enter your full name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="contactEmail">Your Email *</label>
+                        <input type="email" id="contactEmail" name="email" placeholder="Enter your email address" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="contactSubject">Subject *</label>
+                        <input type="text" id="contactSubject" name="subject" placeholder="What is this regarding?" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="contactMessage">Your Message *</label>
+                        <textarea id="contactMessage" name="message" rows="5" placeholder="Please type your message here..." required></textarea>
+                    </div>
+                    
+                    <div class="form-submit">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i> Send Message
+                        </button>
+                        <p class="form-note">I will answer you as soon as possible.</p>
+                    </div>
+                    
+                    <!-- Formspree redirect -->
+                    <input type="hidden" name="_next" value="https://yourdomain.com/thank-you">
+                </form>
+            </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- Footer -->
     <footer class="footer">
