@@ -1,71 +1,60 @@
-// DOM Content Loaded
+// Professional Business Portfolio - McKinsey/BCG Style
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize all components
-    initMobileMenu();
-    initSmoothScroll();
-    initFormInteractions();
-    initTouchOptimizations();
+    initNavigation();
+    initAnimations();
+    initFormValidation();
+    initScrollEffects();
+    initMobileOptimizations();
     
-    console.log('FaridStrategy.com - Professional Portfolio Loaded');
+    console.log('🚀 Professional Portfolio - McKinsey/BCG Style Loaded');
 });
 
-// Mobile Menu with Better Touch Support
-function initMobileMenu() {
-    const menuToggle = document.getElementById('menuToggle');
-    const navList = document.querySelector('.nav-list');
+// Professional Navigation
+function initNavigation() {
+    const mobileToggle = document.getElementById('mobileToggle');
+    const navMenu = document.querySelector('.nav-menu');
     const body = document.body;
     
-    if (menuToggle) {
-        menuToggle.addEventListener('click', function(e) {
+    if (mobileToggle) {
+        mobileToggle.addEventListener('click', function(e) {
             e.stopPropagation();
-            navList.classList.toggle('active');
-            menuToggle.classList.toggle('active');
-            
-            // Toggle body scroll lock
-            if (navList.classList.contains('active')) {
-                body.style.overflow = 'hidden';
-            } else {
-                body.style.overflow = '';
-            }
+            this.classList.toggle('active');
+            navMenu.classList.toggle('active');
+            body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
         });
         
-        // Close menu when clicking outside
-        document.addEventListener('click', function(e) {
-            if (!e.target.closest('.nav') && navList.classList.contains('active')) {
-                navList.classList.remove('active');
-                menuToggle.classList.remove('active');
-                body.style.overflow = '';
-            }
-        });
-        
-        // Close menu when clicking a link
-        const navLinks = document.querySelectorAll('.nav-link');
-        navLinks.forEach(link => {
-            link.addEventListener('click', function() {
-                navList.classList.remove('active');
-                menuToggle.classList.remove('active');
+        // Close menu on link click
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileToggle.classList.remove('active');
+                navMenu.classList.remove('active');
                 body.style.overflow = '';
             });
         });
         
-        // Handle escape key
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape' && navList.classList.contains('active')) {
-                navList.classList.remove('active');
-                menuToggle.classList.remove('active');
+        // Close menu on outside click
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.nav-menu') && !e.target.closest('.mobile-toggle')) {
+                mobileToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+                body.style.overflow = '';
+            }
+        });
+        
+        // Close on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                mobileToggle.classList.remove('active');
+                navMenu.classList.remove('active');
                 body.style.overflow = '';
             }
         });
     }
-}
-
-// Smooth Scrolling with Offset for Fixed Header
-function initSmoothScroll() {
-    const navLinks = document.querySelectorAll('a[href^="#"]');
-    const headerHeight = document.querySelector('.header').offsetHeight;
     
-    navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
+    // Smooth scroll with offset
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
             e.preventDefault();
             
             const targetId = this.getAttribute('href');
@@ -73,26 +62,251 @@ function initSmoothScroll() {
             
             const targetElement = document.querySelector(targetId);
             if (targetElement) {
-                // Calculate position with offset for fixed header
-                const targetPosition = targetElement.offsetTop - headerHeight - 20;
+                const headerHeight = document.querySelector('.main-nav').offsetHeight;
+                const targetPosition = targetElement.offsetTop - headerHeight;
                 
-                // Smooth scroll
                 window.scrollTo({
                     top: targetPosition,
                     behavior: 'smooth'
                 });
                 
-                // Update active nav link
-                navLinks.forEach(l => l.classList.remove('active'));
+                // Update active nav
+                document.querySelectorAll('.nav-link').forEach(link => {
+                    link.classList.remove('active');
+                });
                 this.classList.add('active');
             }
         });
     });
+}
+
+// Professional Animations
+function initAnimations() {
+    // Intersection Observer for scroll animations
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -100px 0px'
+    };
     
-    // Update active link on scroll
-    window.addEventListener('scroll', function() {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate-in');
+            }
+        });
+    }, observerOptions);
+    
+    // Observe elements
+    document.querySelectorAll('.approach-card, .insight-card, .point').forEach(el => {
+        observer.observe(el);
+    });
+    
+    // Chart animations
+    const chartBars = document.querySelectorAll('.chart-bar');
+    chartBars.forEach(bar => {
+        bar.style.animationDelay = bar.style.animationDelay;
+    });
+    
+    // Floating elements
+    const floatingElements = document.querySelectorAll('.element');
+    floatingElements.forEach(el => {
+        el.style.animationDelay = el.style.animationDelay;
+    });
+}
+
+// Professional Form Validation
+function initFormValidation() {
+    const contactForm = document.getElementById('contactForm');
+    
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Validate form
+            if (validateForm(this)) {
+                // Show loading state
+                const submitBtn = this.querySelector('button[type="submit"]');
+                const originalText = submitBtn.innerHTML;
+                
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+                submitBtn.disabled = true;
+                
+                // Simulate form submission (Formspree will handle actual submission)
+                setTimeout(() => {
+                    // Submit the form
+                    this.submit();
+                    
+                    // Reset button
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                    
+                    // Show success message
+                    showNotification('Message sent successfully!', 'success');
+                    
+                    // Reset form after a delay
+                    setTimeout(() => {
+                        this.reset();
+                    }, 1000);
+                }, 1500);
+            }
+        });
+    }
+}
+
+function validateForm(form) {
+    const requiredFields = form.querySelectorAll('[required]');
+    let isValid = true;
+    
+    requiredFields.forEach(field => {
+        if (!field.value.trim()) {
+            field.style.borderColor = '#e53e3e';
+            isValid = false;
+            
+            // Clear error on input
+            field.addEventListener('input', function() {
+                this.style.borderColor = '';
+            });
+        } else {
+            // Email validation
+            if (field.type === 'email') {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(field.value.trim())) {
+                    field.style.borderColor = '#e53e3e';
+                    showNotification('Please enter a valid email address.', 'error');
+                    isValid = false;
+                }
+            }
+        }
+    });
+    
+    if (!isValid) {
+        showNotification('Please fill in all required fields correctly.', 'error');
+    }
+    
+    return isValid;
+}
+
+function showNotification(message, type) {
+    // Remove existing notifications
+    const existingNotification = document.querySelector('.notification');
+    if (existingNotification) {
+        existingNotification.remove();
+    }
+    
+    // Create notification
+    const notification = document.createElement('div');
+    notification.className = `notification ${type}`;
+    notification.innerHTML = `
+        <span>${message}</span>
+        <button class="notification-close"><i class="fas fa-times"></i></button>
+    `;
+    
+    // Add to body
+    document.body.appendChild(notification);
+    
+    // Show notification
+    setTimeout(() => {
+        notification.classList.add('show');
+    }, 10);
+    
+    // Auto-remove after 5 seconds
+    setTimeout(() => {
+        notification.classList.remove('show');
+        setTimeout(() => {
+            notification.remove();
+        }, 300);
+    }, 5000);
+    
+    // Close button
+    notification.querySelector('.notification-close').addEventListener('click', () => {
+        notification.classList.remove('show');
+        setTimeout(() => {
+            notification.remove();
+        }, 300);
+    });
+    
+    // Add notification styles
+    if (!document.querySelector('#notification-styles')) {
+        const style = document.createElement('style');
+        style.id = 'notification-styles';
+        style.textContent = `
+            .notification {
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: white;
+                padding: 1rem 1.5rem;
+                border-radius: 8px;
+                box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+                z-index: 10000;
+                transform: translateX(120%);
+                transition: transform 0.3s ease;
+            }
+            .notification.show {
+                transform: translateX(0);
+            }
+            .notification.success {
+                border-left: 4px solid #38a169;
+            }
+            .notification.error {
+                border-left: 4px solid #e53e3e;
+            }
+            .notification-close {
+                background: none;
+                border: none;
+                color: #718096;
+                cursor: pointer;
+                padding: 0.25rem;
+            }
+            @media (max-width: 768px) {
+                .notification {
+                    left: 20px;
+                    right: 20px;
+                    transform: translateY(-120%);
+                }
+                .notification.show {
+                    transform: translateY(0);
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    }
+}
+
+// Scroll Effects
+function initScrollEffects() {
+    let lastScroll = 0;
+    const header = document.querySelector('.main-nav');
+    
+    window.addEventListener('scroll', () => {
+        const currentScroll = window.pageYOffset;
+        
+        // Header scroll effect
+        if (currentScroll > 100) {
+            if (currentScroll > lastScroll) {
+                // Scrolling down
+                header.style.transform = 'translateY(-100%)';
+            } else {
+                // Scrolling up
+                header.style.transform = 'translateY(0)';
+            }
+        } else {
+            header.style.transform = 'translateY(0)';
+        }
+        
+        lastScroll = currentScroll;
+        
+        // Update active nav based on scroll position
+        updateActiveNav();
+    });
+    
+    function updateActiveNav() {
         const sections = document.querySelectorAll('section[id]');
-        const scrollPosition = window.scrollY + headerHeight + 100;
+        const navLinks = document.querySelectorAll('.nav-link');
+        const scrollPosition = window.scrollY + 100;
         
         sections.forEach(section => {
             const sectionTop = section.offsetTop;
@@ -108,112 +322,69 @@ function initSmoothScroll() {
                 });
             }
         });
-    });
-}
-
-// Form Interactions
-function initFormInteractions() {
-    // Show/hide specific item field based on feedback type
-    const feedbackType = document.getElementById('feedbackType');
-    const specificItemGroup = document.getElementById('specificItemGroup');
-    
-    if (feedbackType && specificItemGroup) {
-        feedbackType.addEventListener('change', function() {
-            if (this.value === 'case_study' || this.value === 'article') {
-                specificItemGroup.style.display = 'block';
-                document.getElementById('specificItem').required = true;
-            } else {
-                specificItemGroup.style.display = 'none';
-                document.getElementById('specificItem').required = false;
-            }
-        });
     }
-    
-    // Form validation for mobile
-    const forms = document.querySelectorAll('form');
-    forms.forEach(form => {
-        form.addEventListener('submit', function(e) {
-            // Basic validation
-            const requiredFields = this.querySelectorAll('[required]');
-            let isValid = true;
-            
-            requiredFields.forEach(field => {
-                if (!field.value.trim()) {
-                    field.style.borderColor = '#dc3545';
-                    isValid = false;
-                    
-                    // Clear error on input
-                    field.addEventListener('input', function() {
-                        this.style.borderColor = '';
-                    });
-                }
-            });
-            
-            if (!isValid) {
-                e.preventDefault();
-                alert('Please fill in all required fields.');
-            }
-        });
-    });
 }
 
-// Touch Device Optimizations
-function initTouchOptimizations() {
-    // Add touch-specific classes for better UX
+// Mobile Optimizations
+function initMobileOptimizations() {
+    // Detect touch device
     if ('ontouchstart' in window || navigator.maxTouchPoints) {
         document.body.classList.add('touch-device');
+        
+        // Improve touch feedback
+        document.querySelectorAll('.btn, .nav-link, .approach-card, .insight-card').forEach(el => {
+            el.addEventListener('touchstart', function() {
+                this.style.transform = 'scale(0.98)';
+            });
+            
+            el.addEventListener('touchend', function() {
+                this.style.transform = '';
+            });
+        });
     }
     
-    // Prevent zoom on double-tap for buttons on iOS
-    document.addEventListener('touchstart', function(e) {
-        if (e.target.tagName === 'BUTTON' || e.target.tagName === 'A') {
-            e.preventDefault();
-        }
-    }, { passive: false });
-    
-    // Improve touch feedback
-    const touchElements = document.querySelectorAll('.btn, .nav-link, .value-card, .contact-card');
-    touchElements.forEach(el => {
-        el.addEventListener('touchstart', function() {
-            this.style.opacity = '0.8';
-        });
-        
-        el.addEventListener('touchend', function() {
-            this.style.opacity = '';
-        });
-    });
-}
-
-// Handle window resize for mobile menu
-let resizeTimer;
-window.addEventListener('resize', function() {
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(function() {
-        const navList = document.querySelector('.nav-list');
-        const menuToggle = document.getElementById('menuToggle');
-        
-        // Close mobile menu on desktop if open
-        if (window.innerWidth > 768 && navList.classList.contains('active')) {
-            navList.classList.remove('active');
-            if (menuToggle) menuToggle.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-    }, 250);
-});
-
-// Lazy load images if any are added in future
-if ('IntersectionObserver' in window) {
-    const imageObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const img = entry.target;
-                img.src = img.dataset.src;
-                imageObserver.unobserve(img);
+    // Handle window resize
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+            // Close mobile menu on desktop resize
+            const navMenu = document.querySelector('.nav-menu');
+            const mobileToggle = document.getElementById('mobileToggle');
+            const body = document.body;
+            
+            if (window.innerWidth > 992 && navMenu.classList.contains('active')) {
+                navMenu.classList.remove('active');
+                mobileToggle.classList.remove('active');
+                body.style.overflow = '';
             }
-        });
-    });
-    
-    document.querySelectorAll('img[data-src]').forEach(img => {
-        imageObserver.observe(img);
+        }, 250);
     });
 }
+
+// Performance optimization
+if ('requestIdleCallback' in window) {
+    requestIdleCallback(() => {
+        // Load non-critical resources
+        console.log('Loading non-critical resources...');
+    });
+}
+
+// Add loading animation for form submission
+document.addEventListener('DOMContentLoaded', () => {
+    // Add CSS for spinner
+    if (!document.querySelector('#spinner-styles')) {
+        const style = document.createElement('style');
+        style.id = 'spinner-styles';
+        style.textContent = `
+            .fa-spinner {
+                animation: spin 1s linear infinite;
+            }
+            @keyframes spin {
+                0% { transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
+            }
+        `;
+        document.head.appendChild(style);
+    }
+});
