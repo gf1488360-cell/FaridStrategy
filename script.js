@@ -1,136 +1,216 @@
-// DOM Content Loaded
+// Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
-    initMenuToggle();
+    // Initialize all components
+    initMobileMenu();
     initSmoothScroll();
-    initFormInteractions();
-    initEmailCopy();
-    initSimpleFormHandling();
+    initActiveNav();
+    initFormHandling();
+    initAnimations();
     
-    console.log("FaridStrategy.com | Business Strategy Analyst Portfolio");
+    console.log('FaridStrategy.com - Professional Portfolio Loaded');
 });
 
-// Keep all your existing functions (initMenuToggle, initSmoothScroll, etc.)
-
-// Initialize form interactions
-function initFormInteractions() {
-    const feedbackType = document.getElementById('feedbackType');
-    const specificItemGroup = document.getElementById('specificItemGroup');
+// Mobile Menu Toggle
+function initMobileMenu() {
+    const menuToggle = document.getElementById('menuToggle');
+    const navList = document.querySelector('.nav-list');
     
-    if (feedbackType && specificItemGroup) {
-        feedbackType.addEventListener('change', function() {
-            if (this.value === 'Case Study' || this.value === 'Article') {
-                specificItemGroup.style.display = 'block';
+    if (menuToggle) {
+        menuToggle.addEventListener('click', function() {
+            navList.classList.toggle('active');
+            const icon = menuToggle.querySelector('i');
+            
+            // Toggle between hamburger and close icon
+            if (icon.classList.contains('fa-bars')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
             } else {
-                specificItemGroup.style.display = 'none';
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
             }
+        });
+        
+        // Close menu when clicking a link
+        const navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                navList.classList.remove('active');
+                menuToggle.querySelector('i').classList.remove('fa-times');
+                menuToggle.querySelector('i').classList.add('fa-bars');
+            });
         });
     }
 }
 
-// Simple form handling (just validation, let Formspree handle submission)
-function initSimpleFormHandling() {
-    const feedbackForm = document.getElementById('feedbackForm');
-    const contactForm = document.getElementById('contactForm');
-    
-    if (feedbackForm) {
-        feedbackForm.addEventListener('submit', function(e) {
-            if (!validateForm(this)) {
-                e.preventDefault();
-            } else {
-                // Form will submit to Formspree
-                console.log('Feedback form submitting to Formspree...');
+// Smooth scrolling for anchor links
+function initSmoothScroll() {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                // Close mobile menu if open
+                const navList = document.querySelector('.nav-list');
+                const menuToggle = document.getElementById('menuToggle');
+                if (navList && navList.classList.contains('active')) {
+                    navList.classList.remove('active');
+                    menuToggle.querySelector('i').classList.remove('fa-times');
+                    menuToggle.querySelector('i').classList.add('fa-bars');
+                }
+                
+                // Calculate scroll position
+                const headerHeight = document.querySelector('.navbar').offsetHeight;
+                const targetPosition = targetElement.offsetTop - headerHeight - 20;
+                
+                // Smooth scroll
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
             }
         });
-    }
+    });
+}
+
+// Update active navigation based on scroll position
+function initActiveNav() {
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+    
+    window.addEventListener('scroll', function() {
+        let current = '';
+        const scrollPosition = window.scrollY + 100;
+        
+        // Find current section
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            
+            if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                current = section.getAttribute('id');
+            }
+        });
+        
+        // Update active nav link
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${current}`) {
+                link.classList.add('active');
+            }
+        });
+    });
+}
+
+// Form handling
+function initFormHandling() {
+    const contactForm = document.getElementById('contactForm');
     
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
-            if (!validateForm(this)) {
-                e.preventDefault();
-            } else {
-                // Form will submit to Formspree
-                console.log('Contact form submitting to Formspree...');
+            e.preventDefault();
+            
+            // Simple validation
+            const requiredFields = this.querySelectorAll('[required]');
+            let isValid = true;
+            
+            requiredFields.forEach(field => {
+                if (!field.value.trim()) {
+                    field.style.borderColor = '#ef4444';
+                    isValid = false;
+                    
+                    // Remove error on input
+                    field.addEventListener('input', function() {
+                        this.style.borderColor = '';
+                    });
+                }
+            });
+            
+            if (!isValid) {
+                alert('Please fill in all required fields.');
+                return;
             }
+            
+            // Email validation
+            const emailField = this.querySelector('input[type="email"]');
+            if (emailField && emailField.value.trim()) {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(emailField.value.trim())) {
+                    emailField.style.borderColor = '#ef4444';
+                    alert('Please enter a valid email address.');
+                    return;
+                }
+            }
+            
+            // Show loading state
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+            submitBtn.disabled = true;
+            
+            // Submit the form (Formspree will handle it)
+            // In a real scenario, you might want to use fetch API for better UX
+            this.submit();
+            
+            // Reset form after submission
+            setTimeout(() => {
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            }, 3000);
         });
     }
 }
 
-// Simple validation
-function validateForm(form) {
-    const requiredFields = form.querySelectorAll('[required]');
-    let isValid = true;
+// Initialize animations on scroll
+function initAnimations() {
+    // Add animation classes to elements when they come into view
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
     
-    requiredFields.forEach(field => {
-        if (!field.value.trim()) {
-            field.style.borderColor = '#e74c3c';
-            isValid = false;
-            
-            field.addEventListener('input', function() {
-                this.style.borderColor = '';
-            });
-        } else {
-            field.style.borderColor = '';
-        }
-    });
-    
-    // Email validation
-    const emailFields = form.querySelectorAll('input[type="email"]');
-    emailFields.forEach(field => {
-        if (field.value.trim()) {
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(field.value.trim())) {
-                field.style.borderColor = '#e74c3c';
-                alert('Please enter a valid email address.');
-                isValid = false;
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate__animated', 'animate__fadeInUp');
             }
-        }
+        });
+    }, observerOptions);
+    
+    // Observe elements
+    document.querySelectorAll('.expertise-card, .case-card, .article-card').forEach(el => {
+        observer.observe(el);
     });
-    
-    if (!isValid) {
-        alert('Please fill in all required fields correctly.');
-    }
-    
-    return isValid;
 }
 
-// Copy email to clipboard (keep existing)
-function initEmailCopy() {
-    const emailElement = document.getElementById('emailText');
-    if (emailElement) {
-        emailElement.classList.add('click-to-copy');
-        emailElement.title = 'Click to copy email';
+// Add some interactive effects
+document.addEventListener('DOMContentLoaded', function() {
+    // Add hover effects to buttons
+    const buttons = document.querySelectorAll('.btn');
+    buttons.forEach(button => {
+        button.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-3px)';
+        });
         
-        emailElement.addEventListener('click', function() {
-            const email = this.textContent;
-            
-            navigator.clipboard.writeText(email).then(() => {
-                const originalText = this.textContent;
-                this.textContent = 'Copied!';
-                this.style.color = '#27ae60';
-                
-                setTimeout(() => {
-                    this.textContent = originalText;
-                    this.style.color = '';
-                }, 2000);
-            }).catch(err => {
-                console.error('Failed to copy: ', err);
-                // Fallback method
-                const tempInput = document.createElement('input');
-                tempInput.value = email;
-                document.body.appendChild(tempInput);
-                tempInput.select();
-                document.execCommand('copy');
-                document.body.removeChild(tempInput);
-                
-                const originalText = this.textContent;
-                this.textContent = 'Copied!';
-                this.style.color = '#27ae60';
-                
-                setTimeout(() => {
-                    this.textContent = originalText;
-                    this.style.color = '';
-                }, 2000);
-            });
+        button.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0)';
         });
-    }
-}
+    });
+    
+    // Chart animation
+    const charts = document.querySelectorAll('.chart');
+    charts.forEach((chart, index) => {
+        setTimeout(() => {
+            const height = chart.style.height;
+            chart.style.height = '0%';
+            
+            setTimeout(() => {
+                chart.style.height = height;
+                chart.style.transition = 'height 1s ease-out';
+            }, index * 200);
+        }, 500);
+    });
+});
