@@ -1243,3 +1243,27 @@ body {
     box-shadow: 0 8px 25px rgba(0,0,0,0.3);
     border-color: rgba(255, 255, 255, 0.6);
 }
+
+
+/* Better looking tags for insights cards */
+.insight-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.insight-tags span {
+    background: rgba(66, 153, 225, 0.1);
+    color: #2b6cb0;
+    padding: 0.375rem 0.75rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.insight-tags span:hover {
+    background: rgba(66, 153, 225, 0.2);
+    transform: translateY(-1px);
+}
