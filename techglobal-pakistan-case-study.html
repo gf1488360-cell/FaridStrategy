@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strategic Market Entry: Pakistan IT | Ghulam Farid</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600;700&family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Case Study specific styles */
+        .case-study-header {
+            background: linear-gradient(135deg, #1a365d 0%, #2d3748 100%);
+            color: white;
+            padding: 8rem 0 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .case-study-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.3);
+        }
+        
+        .case-study-meta {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+            color: rgba(255,255,255,0.8);
+            font-size: 0.9rem;
+        }
+        
+        .case-study-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .case-study-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .case-study-content {
+            padding: 4rem 0;
+            background: #ffffff;
+        }
+        
+        .case-study-section {
+            margin-bottom: 3rem;
+        }
+        
+        .case-study-section h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: #1a365d;
+            border-bottom: 3px solid #2e7d32;
+            padding-bottom: 0.5rem;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .case-study-section h3 {
+            font-size: 1.5rem;
+            margin: 2rem 0 1rem;
+            color: #2e7d32;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .case-study-section p {
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            color: #4a5568;
+            font-family: 'Source Sans Pro', sans-serif;
+            font-size: 1.1rem;
+        }
+        
+        .case-study-section ul, .case-study-section ol {
+            margin: 1.5rem 0;
+            padding-left: 2rem;
+        }
+        
+        .case-study-section li {
+            margin-bottom: 0.75rem;
+            line-height: 1.6;
+            color: #4a5568;
+        }
+        
+        .case-study-image {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 2rem 0;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+        }
+        
+        .key-findings {
+            background: #f1f8e9;
+            border-left: 4px solid #2e7d32;
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+        
+        .key-findings h3 {
+            color: #1a365d;
+            margin-top: 0;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .key-findings ul {
+            margin: 0;
+            padding-left: 1.5rem;
+        }
+        
+        .key-findings li {
+            margin-bottom: 1rem;
+        }
+        
+        .recommendations-box {
+            background: #e8f5e9;
+            border: 2px solid #2e7d32;
+            border-radius: 8px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .recommendations-box h3 {
+            color: #1a365d;
+            margin-top: 0;
+        }
+        
+        .impact-box {
+            background: #e3f2fd;
+            border: 2px solid #2196f3;
+            border-radius: 8px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .impact-box h3 {
+            color: #1a365d;
+            margin-top: 0;
+        }
+        
+        .case-study-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid #e2e8f0;
+        }
+        
+        .case-study-nav-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 1.5rem;
+            background: #ffffff;
+            border: 2px solid #e2e8f0;
+            border-radius: 6px;
+            text-decoration: none;
+            color: #2d3748;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            font-family: 'Source Sans Pro', sans-serif;
+        }
+        
+        .case-study-nav-btn:hover {
+            border-color: #2e7d32;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+        }
+        
+        .case-study-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 2rem;
+        }
+        
+        .case-study-tag {
+            background: linear-gradient(135deg, rgba(46, 125, 50, 0.15) 0%, rgba(46, 125, 50, 0.25) 100%);
+            color: #2e7d32;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            font-family: 'Source Sans Pro', sans-serif;
+            border: 1px solid rgba(46, 125, 50, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .case-study-tag:hover {
+            background: linear-gradient(135deg, rgba(46, 125, 50, 0.25) 0%, rgba(46, 125, 50, 0.35) 100%);
+            transform: translateY(-2px);
+        }
+        
+        .section-label {
+            display: inline-block;
+            color: #2e7d32;
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.75rem;
+            font-family: 'Source Sans Pro', sans-serif;
+        }
+        
+        .executive-summary {
+            background: linear-gradient(135deg, #f1f8e9 0%, #e8f5e9 100%);
+            padding: 2.5rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+            border-left: 5px solid #2e7d32;
+        }
+        
+        .executive-summary h3 {
+            color: #1a365d;
+            margin-top: 0;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .timeline-box {
+            background: #fff3e0;
+            border: 2px solid #ff9800;
+            border-radius: 8px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .timeline-box h3 {
+            color: #1a365d;
+            margin-top: 0;
+        }
+
+        /* Table styles */
+        .strategy-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            font-family: 'Source Sans Pro', sans-serif;
+        }
+        .strategy-table th {
+            background: #1a365d;
+            color: white;
+            padding: 12px;
+            font-weight: 600;
+        }
+        .strategy-table td, .strategy-table th {
+            border: 1px solid #e2e8f0;
+            padding: 10px;
+            text-align: left;
+        }
+        .strategy-table tr:nth-child(even) {
+            background: #f8fafc;
+        }
+
+        .grid-container {
+            display: flex;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+        .grid-svg {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        @media (max-width: 768px) {
+            .case-study-header {
+                padding: 6rem 0 3rem;
+            }
+            
+            .case-study-section h2 {
+                font-size: 1.75rem;
+            }
+            
+            .case-study-section h3 {
+                font-size: 1.25rem;
+            }
+            
+            .key-findings, .recommendations-box, .impact-box {
+                padding: 1.5rem;
+            }
+            
+            .case-study-navigation {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .case-study-nav-btn {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .case-study-meta {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+        }
+        
+        /* Body padding for fixed nav */
+        body {
+            padding-top: 80px;
+        }
+        
+        /* Logo link styling */
+        .logo a {
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        /* Numbered sections */
+        .numbered-section {
+            counter-increment: section;
+            position: relative;
+            padding-left: 3rem;
+        }
+        
+        .numbered-section::before {
+            content: counter(section) ".";
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 2rem;
+            font-weight: bold;
+            color: #2e7d32;
+            font-family: 'Playfair Display', serif;
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Announcement Bar -->
+    <div class="announcement-bar">
+        <div class="container">
+            <span class="announcement-text">Strategic Business Analysis & Consulting | Data-Driven Decision Making</span>
+        </div>
+    </div>
+
+    <!-- Main Navigation -->
+    <nav class="main-nav">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <a href="index.html">
+                        <div class="logo-mark">F.S</div>
+                        <div class="logo-text">
+                            <span class="logo-name">Ghulam Farid</span>
+                            <span class="logo-title">Business Strategy Analyst</span>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="nav-menu">
+                    <ul class="nav-list">
+                        <li><a href="index.html#home" class="nav-link">Home</a></li>
+                        <li><a href="index.html#approach" class="nav-link">Approach</a></li>
+                        <li><a href="index.html#expertise" class="nav-link">Expertise</a></li>
+                        <li><a href="index.html#insights" class="nav-link">Projects</a></li>
+                        <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+                    </ul>
+                    <a href="index.html#contact" class="nav-cta">
+                        <span>Start a project</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <button class="mobile-toggle" id="mobileToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Case Study Header -->
+    <header class="case-study-header">
+        <div class="container">
+            <div class="case-study-container">
+                <div class="section-label" style="color: rgba(255,255,255,0.8); border: 1px solid rgba(255,255,255,0.3); padding: 0.5rem 1rem; border-radius: 4px; background: rgba(255,255,255,0.1);">Strategic Case Study</div>
+                <h1 style="font-size: 3rem; color: white; margin: 1.5rem 0; font-family: 'Playfair Display', serif; line-height: 1.2;">Strategic Market Entry Framework for Emerging Economies</h1>
+                <p style="font-size: 1.25rem; color: rgba(255,255,255,0.9); margin: 1.5rem 0 2rem; font-family: 'Source Sans Pro', sans-serif; line-height: 1.6;">TechGlobal's expansion into Pakistan: navigating mandatory local incorporation, data localization, and rapid IT export growth to capture $60M ARR.</p>
+                
+                <div class="case-study-meta">
+                    <div class="case-study-meta-item">
+                        <i class="fas fa-user" style="color: rgba(255,255,255,0.8);"></i>
+                        <span style="color: rgba(255,255,255,0.9);">Ghulam Farid</span>
+                    </div>
+                    <div class="case-study-meta-item">
+                        <i class="fas fa-calendar" style="color: rgba(255,255,255,0.8);"></i>
+                        <span style="color: rgba(255,255,255,0.9);">February 2026</span>
+                    </div>
+                    <div class="case-study-meta-item">
+                        <i class="fas fa-clock" style="color: rgba(255,255,255,0.8);"></i>
+                        <span style="color: rgba(255,255,255,0.9);">12 min read</span>
+                    </div>
+                </div>
+                
+                <!-- Case Study Tags - Premium White Tags -->
+                <div class="case-study-tags" style="margin-top: 2.5rem;">
+                    <span class="case-study-tag" style="background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.25) 100%); color: white; border: 1px solid rgba(255,255,255,0.4); padding: 0.6rem 1.2rem; font-weight: 600; backdrop-filter: blur(10px); box-shadow: 0 4px 15px rgba(0,0,0,0.1);">Market Entry</span>
+                    <span class="case-study-tag" style="background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.25) 100%); color: white; border: 1px solid rgba(255,255,255,0.4); padding: 0.6rem 1.2rem; font-weight: 600; backdrop-filter: blur(10px); box-shadow: 0 4px 15px rgba(0,0,0,0.1);">Pakistan IT</span>
+                    <span class="case-study-tag" style="background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.25) 100%); color: white; border: 1px solid rgba(255,255,255,0.4); padding: 0.6rem 1.2rem; font-weight: 600; backdrop-filter: blur(10px); box-shadow: 0 4px 15px rgba(0,0,0,0.1);">Joint Venture</span>
+                    <span class="case-study-tag" style="background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.25) 100%); color: white; border: 1px solid rgba(255,255,255,0.4); padding: 0.6rem 1.2rem; font-weight: 600; backdrop-filter: blur(10px); box-shadow: 0 4px 15px rgba(0,0,0,0.1);">Data Localization</span>
+                    <span class="case-study-tag" style="background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.25) 100%); color: white; border: 1px solid rgba(255,255,255,0.4); padding: 0.6rem 1.2rem; font-weight: 600; backdrop-filter: blur(10px); box-shadow: 0 4px 15px rgba(0,0,0,0.1);">Emerging Markets</span>
+                    <span class="case-study-tag" style="background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.25) 100%); color: white; border: 1px solid rgba(255,255,255,0.4); padding: 0.6rem 1.2rem; font-weight: 600; backdrop-filter: blur(10px); box-shadow: 0 4px 15px rgba(0,0,0,0.1);">TechGlobal</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Case Study Content -->
+    <main class="case-study-content">
+        <div class="container">
+            <div class="case-study-container">
+                <!-- Executive Summary -->
+                <section class="executive-summary">
+                    <h3>Executive Summary</h3>
+                    <p>TechGlobal, a multinational enterprise software and cloud solutions provider, plans to enter Pakistan—a rapidly growing emerging economy with increasing digital adoption. The core issue is selecting the optimal entry mode while navigating complex regulatory requirements. We recommend a <strong>phased joint venture</strong> with a local IT services firm to co‑develop and deliver cloud‑based solutions. This strategy aligns with Pakistan's mandatory local incorporation rules and is projected to achieve 15% market share in the enterprise segment, generating $60 million in annual recurring revenue within four years.</p>
+                </section>
+
+                <!-- Situation Analysis -->
+                <section class="case-study-section">
+                    <h2>Situation Analysis & Problem Definition</h2>
+                    <p><strong>Market Conditions:</strong> Pakistan's IT exports surged 20% to $2.6 billion in the first seven months of FY26, with January 2026 recording $374 million in exports—a 19% year-on-year increase. The government targets $5 billion in IT exports for FY26 and $10 billion by FY29 under the 'Uraan Pakistan' plan. The enterprise software market is expanding rapidly, driven by cloud adoption across banking, telecom, and retail sectors.</p>
+                    <p><strong>Competitors:</strong> Global cloud providers have a foothold, but local players dominate on-premise solutions. Price sensitivity remains high among SMEs, though enterprise adoption is growing.</p>
+                    <p><strong>Regulatory Environment:</strong> Stringent requirements create significant entry barriers:</p>
+                    <ul>
+                        <li>Mandatory local presence: Internet companies must establish a physical office and appoint a grievance officer based in Pakistan.</li>
+                        <li>Data localization: Critical personal data must be processed and stored only within Pakistan; cross-border transfers face strict controls.</li>
+                        <li>Data protection: The Personal Data Protection Bill 2023 introduces 72-hour breach notification requirements.</li>
+                        <li>Tax regime: Final Tax Regime at 0.25% for IT exporters expires June 30, 2026, with industry lobbying for extension.</li>
+                    </ul>
+                    <p><strong>Internal Capabilities:</strong> TechGlobal has strong product R&D and global support infrastructure but lacks on‑the‑ground sales, local language support, and understanding of Pakistan's complex regulatory landscape.</p>
+                    <p><strong>Root Cause:</strong> Market entry barriers include data localization mandates, mandatory local incorporation, intense price competition, and the need for tailored solutions. The core problem is establishing a profitable and compliant presence while managing investment risk in a volatile regulatory environment.</p>
+                </section>
+
+                <!-- Strategic Options -->
+                <section class="case-study-section">
+                    <h2>Strategic Options & Evaluation (The "What If")</h2>
+                    <p>Three mutually exclusive and collectively exhaustive (MECE) options:</p>
+                    <table class="strategy-table">
+                        <thead>
+                            <tr><th>Option</th><th>Description</th><th>Feasibility</th><th>Impact</th><th>Cost</th><th>Risk</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>A) Export via Local Resellers</td><td>Sell software licenses through local IT distributors without local entity.</td><td>Low (violates local presence rules)</td><td>Low</td><td>Low</td><td>High</td></tr>
+                            <tr><td>B) Joint Venture</td><td>Partner with a PSEB-registered local IT firm to co-develop, host, and support solutions.</td><td>High</td><td>High</td><td>Medium</td><td>Medium</td></tr>
+                            <tr><td>C) Wholly-Owned Subsidiary</td><td>Establish a fully owned local entity with own data center and sales force.</td><td>Medium</td><td>High</td><td>High</td><td>High</td></tr>
+                        </tbody>
+                    </table>
+
+                    <h3>Control vs. Investment 2×2 Grid</h3>
+                    <div class="grid-container">
+                        <!-- Simple SVG grid for illustration -->
+                        <svg width="400" height="400" viewBox="0 0 400 400" class="grid-svg">
+                            <line x1="50" y1="200" x2="350" y2="200" stroke="#ccc" stroke-dasharray="5,5"/>
+                            <line x1="200" y1="50" x2="200" y2="350" stroke="#ccc" stroke-dasharray="5,5"/>
+                            <text x="40" y="180" fill="#333" font-size="12">Low Control</text>
+                            <text x="40" y="220" fill="#333" font-size="12">High Control</text>
+                            <text x="220" y="380" fill="#333" font-size="12">High Investment</text>
+                            <text x="20" y="380" fill="#333" font-size="12">Low Investment</text>
+                            <!-- Points -->
+                            <circle cx="100" cy="100" r="8" fill="#e53e3e" />
+                            <text x="110" y="90" fill="#e53e3e" font-size="12">Export</text>
+                            <circle cx="220" cy="240" r="8" fill="#2e7d32" />
+                            <text x="230" y="230" fill="#2e7d32" font-size="12">Joint Venture</text>
+                            <circle cx="300" cy="300" r="8" fill="#1a365d" />
+                            <text x="310" y="290" fill="#1a365d" font-size="12">Wholly-Owned</text>
+                        </svg>
+                    </div>
+                    <p><em>Interpretation:</em> Export via resellers is infeasible due to mandatory local incorporation rules. Wholly‑owned offers high control but requires significant capital and carries high regulatory risk. Joint venture strikes the ideal balance—ensuring compliance while leveraging local partner expertise in navigating Pakistan's complex regulatory environment.</p>
+                </section>
+
+                <!-- Recommended Roadmap -->
+                <section class="case-study-section">
+                    <h2>Recommended Roadmap (The "How")</h2>
+                    <div class="timeline-box">
+                        <h3>Phased Execution Plan</h3>
+                        <ul>
+                            <li><strong>Phase 1 (0–6 months) – Partner Selection & Compliance Setup:</strong> Identify PSEB-registered local IT firms; negotiate JV terms; establish physical office and appoint grievance officer; secure data center partnership compliant with data localization. <em>Milestone:</em> Signed JV agreement, registered entity.</li>
+                            <li><strong>Phase 2 (6–18 months) – Localization & Pilot:</strong> Adapt core software for local languages, integrate local payment gateways; ensure compliance with Pakistan Security Standards (PSS); launch pilot with 30 enterprises in Karachi, Lahore, and Islamabad. <em>Milestone:</em> 10% customer satisfaction improvement, 5% enterprise market share.</li>
+                            <li><strong>Phase 3 (18–36 months) – Scale-Up:</strong> Expand nationwide targeting banking, telecom, retail; introduce vertical solutions aligned with SBP's Technology Risk Management frameworks; leverage 5% cash bonus incentive on IT exports. <em>Milestone:</em> 15% enterprise market share, first government contract.</li>
+                        </ul>
+                    </div>
+                    <p><strong>Responsibilities:</strong> TechGlobal provides product development, global support, and brand; local partner manages sales, local support, regulatory compliance, and PSEB registration benefits.</p>
+                </section>
+
+                <!-- Risk Mitigation & KPIs -->
+                <section class="case-study-section">
+                    <h2>Risk Mitigation & Implementation KPIs (The "Proof")</h2>
+                    <table class="strategy-table">
+                        <thead><tr><th>Risk</th><th>Mitigation Strategy</th></tr></thead>
+                        <tbody>
+                            <tr><td>Regulatory changes (FTR expiry June 2026)</td><td>Structure JV to qualify for PSEB registration; actively participate in P@SHA advocacy.</td></tr>
+                            <tr><td>Data localization requirements</td><td>Partner with local cloud providers; maintain all critical data within Pakistan.</td></tr>
+                            <tr><td>Currency fluctuation</td><td>Retain 100% USD earnings as permitted; hedge 50% of expected revenue.</td></tr>
+                            <tr><td>Political instability</td><td>Diversify client base across multiple sectors; maintain government relations.</td></tr>
+                            <tr><td>Intellectual property leakage</td><td>Use joint ownership with clear licensing terms; implement strong legal safeguards.</td></tr>
+                            <tr><td>72-hour breach reporting mandate</td><td>Establish incident response team with automated detection and reporting workflows.</td></tr>
+                        </tbody>
+                    </table>
+
+                    <h3>Key Performance Indicators (KPIs)</h3>
+                    <ul>
+                        <li>Market share (% by segment) – quarterly</li>
+                        <li>Number of active enterprise clients – monthly</li>
+                        <li>Compliance audit score (PSS, data localization) – quarterly</li>
+                        <li>Annual recurring revenue vs. target – monthly</li>
+                        <li>Incident response time (target: <48 hours for breach notification)</li>
+                        <li>Employee retention rate (addressing brain drain risk)</li>
+                    </ul>
+                </section>
+
+                <!-- Financial Impact -->
+                <section class="case-study-section">
+                    <h2>Financial Impact & Conclusion (The "Value")</h2>
+                    <div class="impact-box">
+                        <h3>Projected Financials</h3>
+                        <ul>
+                            <li><strong>Initial Investment:</strong> $12 million (JV capital, local office setup, data center partnership, product localization).</li>
+                            <li><strong>Revenue Projection:</strong> Year 1: $6M, Year 2: $22M, Year 3: $45M, Year 4: $60M ARR.</li>
+                            <li><strong>Break-even:</strong> End of Year 3.</li>
+                            <li><strong>ROI:</strong> 18% by Year 4, 28% by Year 5.</li>
+                        </ul>
+                    </div>
+                    <!-- Simple bar chart placeholder -->
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='200' viewBox='0 0 600 200'%3E%3Crect x='50' y='150' width='80' height='50' fill='%232e7d32'/%3E%3Ctext x='70' y='140' fill='%23333' font-size='12'%3EYear 1: $6M%3C/text%3E%3Crect x='200' y='100' width='80' height='100' fill='%232e7d32'/%3E%3Ctext x='220' y='90' fill='%23333' font-size='12'%3EYear 2: $22M%3C/text%3E%3Crect x='350' y='30' width='80' height='170' fill='%232e7d32'/%3E%3Ctext x='370' y='20' fill='%23333' font-size='12'%3EYear 3: $45M%3C/text%3E%3Crect x='500' y='0' width='80' height='200' fill='%231a365d'/%3E%3Ctext x='520' y='-10' fill='%23333' font-size='12'%3EYear 4: $60M%3C/text%3E%3C/svg%3E" alt="Revenue bar chart" class="case-study-image">
+
+                    <p><strong>Long-term Strategic Value:</strong> Establishes a compliant, scalable platform in Pakistan's fastest-growing services sector. Enables participation in government's digital transformation agenda, banking sector modernization (SBP frameworks), and telecom infrastructure development (PTA's CTDISR-2025). The joint venture positions TechGlobal to benefit from Pakistan's projected 27% CAGR required to achieve $10 billion export target by FY29.</p>
+                    <p><strong>Conclusion:</strong> The joint venture approach optimally balances risk, investment, and regulatory compliance in Pakistan's complex but opportunity-rich market. With a clear phased roadmap, robust risk mitigation, and strong local partnership leveraging PSEB registration benefits, TechGlobal can successfully capture the growing enterprise IT market while navigating mandatory local presence rules, data localization requirements, and evolving tax policies.</p>
+                </section>
+
+                <!-- Case Study Navigation -->
+                <div class="case-study-navigation">
+                    <a href="index.html#insights" class="case-study-nav-btn">
+                        <i class="fas fa-arrow-left"></i>
+                        <span>Back to Case Studies</span>
+                    </a>
+                    <a href="index.html#contact" class="case-study-nav-btn">
+                        <span>Schedule Consultation</span>
+                        <i class="fas fa-calendar"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <div class="logo-mark">F.S</div>
+                        <div class="logo-text">
+                            <span class="logo-title">Ghulam Farid</span>
+                            <span class="logo-title">Business Strategy Analyst</span>
+                        </div>
+                    </div>
+                    <p class="footer-tagline">Where strategy meets progress</p>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="link-group">
+                        <h4>Navigation</h4>
+                        <a href="index.html#home">Home</a>
+                        <a href="index.html#approach">Approach</a>
+                        <a href="index.html#expertise">Expertise</a>
+                        <a href="index.html#insights">Projects</a>
+                        <a href="index.html#contact">Contact</a>
+                    </div>
+                    
+                    <div class="link-group">
+                        <h4>Services</h4>
+                        <span>Business Strategy</span>
+                        <span>Market Analysis</span>
+                        <span>Competitive Intelligence</span>
+                        <span>Strategic Planning</span>
+                    </div>
+                </div>
+                
+                <div class="footer-cta">
+                    <h4>Ready to transform your strategy?</h4>
+                    <a href="index.html#contact" class="btn btn-secondary">
+                        <span>Start a Project</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Ghulam Farid. All rights reserved.</p>
+                <p class="footer-site">FaridStrategy.com</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu toggle
+            const mobileToggle = document.getElementById('mobileToggle');
+            const navMenu = document.querySelector('.nav-menu');
+            
+            if (mobileToggle) {
+                mobileToggle.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                    navMenu.classList.toggle('active');
+                });
+            }
+            
+            // Highlight active nav link
+            const currentPage = window.location.pathname.split('/').pop();
+            if (currentPage === 'techglobal-pakistan-case-study.html') { // adjust filename as needed
+                document.querySelectorAll('.nav-link').forEach(link => {
+                    link.classList.remove('active');
+                });
+                const insightsLink = document.querySelector('a[href*="insights"]');
+                if (insightsLink) {
+                    insightsLink.classList.add('active');
+                }
+            }
+        });
+    </script>
+</body>
+</html>
