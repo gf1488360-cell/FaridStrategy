@@ -2,645 +2,672 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Hyperlocal Information Gap | Product Case Study — Ghulam Farid</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hyperlocal Information Gap | Ghulam Farid</title>
+    <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:wght@400;500;600;700;800&family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600;700&family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Source Sans Pro', sans-serif;
-            background-color: #ffffff;
-            color: #1e2a3e;
-            padding-top: 80px;
-            scroll-behavior: smooth;
-        }
-
-        /* Announcement Bar */
-        .announcement-bar {
-            background: #0b2b26;
-            color: #d9f0ec;
-            padding: 0.5rem 0;
-            font-size: 0.85rem;
-            text-align: center;
-            font-weight: 500;
-            letter-spacing: 0.3px;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1001;
-        }
-
-        .container {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        /* Navigation */
-        .main-nav {
-            background: white;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-            position: fixed;
-            width: 100%;
-            top: 34px;
-            z-index: 1000;
-            backdrop-filter: blur(0px);
-        }
-
-        .nav-wrapper {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 0;
-        }
-
-        .logo a {
-            display: flex;
-            align-items: center;
-            gap: 0.85rem;
-            text-decoration: none;
-        }
-
-        .logo-mark {
-            background: linear-gradient(135deg, #1f5e3a, #2e7d32);
-            width: 44px;
-            height: 44px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 800;
-            font-size: 1.4rem;
-            color: white;
-            font-family: 'Playfair Display', serif;
-            box-shadow: 0 6px 12px rgba(46,125,50,0.2);
-        }
-
-        .logo-text {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .logo-name {
-            font-weight: 700;
-            font-size: 1.2rem;
-            color: #0f2b1d;
-            font-family: 'Inter', sans-serif;
-        }
-
-        .logo-title {
-            font-size: 0.7rem;
-            color: #5a6e5c;
-            letter-spacing: 0.3px;
-        }
-
-        .nav-menu {
-            display: flex;
-            align-items: center;
-            gap: 2rem;
-        }
-
-        .nav-list {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-
-        .nav-link {
-            text-decoration: none;
-            font-weight: 500;
-            color: #1f2e2a;
-            transition: 0.2s;
-            font-family: 'Inter', sans-serif;
-        }
-
-        .nav-link:hover, .nav-link.active {
-            color: #2e7d32;
-        }
-
-        .nav-cta {
-            background: #2e7d32;
-            padding: 0.5rem 1.2rem;
-            border-radius: 40px;
-            color: white;
-            text-decoration: none;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: all 0.2s;
-        }
-
-        .nav-cta:hover {
-            background: #1f5e3a;
-            transform: translateY(-2px);
-        }
-
-        .mobile-toggle {
-            display: none;
-            background: none;
-            border: none;
-            cursor: pointer;
-            flex-direction: column;
-            gap: 5px;
-        }
-
-        .mobile-toggle span {
-            width: 25px;
-            height: 2px;
-            background: #1f2e2a;
-            transition: 0.2s;
-        }
-
-        /* case study header */
+        /* Case Study specific styles (identical to template) */
         .case-study-header {
-            background: linear-gradient(125deg, #0c2e1f 0%, #173e1c 100%);
+            background: linear-gradient(135deg, #1a365d 0%, #2d3748 100%);
             color: white;
-            padding: 5rem 0 4rem;
+            padding: 8rem 0 4rem;
             position: relative;
+            overflow: hidden;
         }
-
+        
+        .case-study-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.3);
+        }
+        
         .case-study-meta {
             display: flex;
-            flex-wrap: wrap;
-            gap: 1.8rem;
-            margin-top: 1.5rem;
+            align-items: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+            color: rgba(255,255,255,0.8);
             font-size: 0.9rem;
-            color: #dfeee4;
         }
-
+        
         .case-study-meta-item {
             display: flex;
             align-items: center;
-            gap: 0.6rem;
+            gap: 0.5rem;
         }
-
-        .case-study-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.8rem;
-            margin-top: 2rem;
-        }
-
-        .case-study-tag {
-            background: rgba(255,255,255,0.12);
-            backdrop-filter: blur(8px);
-            padding: 0.5rem 1.2rem;
-            border-radius: 40px;
-            font-weight: 600;
-            font-size: 0.8rem;
-            color: white;
-            border: 1px solid rgba(255,255,255,0.25);
-            transition: all 0.2s;
-        }
-
-        .section-label {
-            display: inline-block;
-            background: rgba(255,255,255,0.2);
-            padding: 0.3rem 1rem;
-            border-radius: 20px;
-            font-size: 0.7rem;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-        }
-
-        .case-study-content {
-            padding: 4rem 0 5rem;
-            background: #fefef7;
-        }
-
+        
         .case-study-container {
             max-width: 1000px;
             margin: 0 auto;
+            padding: 0 2rem;
         }
-
+        
+        .case-study-content {
+            padding: 4rem 0;
+            background: #ffffff;
+        }
+        
         .case-study-section {
-            margin-bottom: 3.5rem;
+            margin-bottom: 3rem;
         }
-
+        
         .case-study-section h2 {
             font-size: 2rem;
-            font-family: 'Playfair Display', serif;
-            color: #1a3b2e;
-            border-left: 5px solid #2e7d32;
-            padding-left: 1.2rem;
             margin-bottom: 1.5rem;
+            color: #1a365d;
+            border-bottom: 3px solid #2e7d32;
+            padding-bottom: 0.5rem;
+            font-family: 'Playfair Display', serif;
         }
-
+        
         .case-study-section h3 {
             font-size: 1.5rem;
-            font-family: 'Playfair Display', serif;
-            color: #1f5e3a;
-            margin: 1.8rem 0 1rem;
-        }
-
-        .case-study-section p {
-            line-height: 1.7;
-            color: #2d3e40;
-            margin-bottom: 1.2rem;
-            font-size: 1.05rem;
-        }
-
-        .executive-summary {
-            background: #ecf7ee;
-            padding: 2rem 2.2rem;
-            border-radius: 28px;
-            margin: 1.5rem 0 2rem;
-            border-left: 5px solid #2e7d32;
-        }
-
-        .key-findings, .recommendations-box, .impact-box, .timeline-box {
-            padding: 1.8rem;
-            border-radius: 24px;
-            margin: 2rem 0;
-            background: white;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.05);
-        }
-
-        .key-findings {
-            background: #fef8e7;
-            border-left: 5px solid #f5b042;
-        }
-
-        .recommendations-box {
-            background: #eef2fa;
-            border-left: 5px solid #2e7d32;
-        }
-
-        .impact-box {
-            background: #e4f0ed;
-            border-left: 5px solid #1f8a4c;
-        }
-
-        .timeline-box {
-            background: #faf3e0;
-            border-left: 5px solid #e67e22;
-        }
-
-        .grid-mechanisms {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 1.8rem;
-            margin: 2rem 0;
-        }
-
-        .mechanic-card {
-            background: white;
-            border-radius: 24px;
-            padding: 1.5rem;
-            box-shadow: 0 8px 18px rgba(0,0,0,0.05);
-            transition: transform 0.2s;
-            border: 1px solid #e0e9e0;
-        }
-
-        .mechanic-card i {
-            font-size: 2rem;
+            margin: 2rem 0 1rem;
             color: #2e7d32;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .case-study-section p {
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            color: #4a5568;
+            font-family: 'Source Sans Pro', sans-serif;
+            font-size: 1.1rem;
+        }
+        
+        .case-study-section ul, .case-study-section ol {
+            margin: 1.5rem 0;
+            padding-left: 2rem;
+        }
+        
+        .case-study-section li {
+            margin-bottom: 0.75rem;
+            line-height: 1.6;
+            color: #4a5568;
+        }
+        
+        .case-study-image {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 2rem 0;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+        }
+        
+        .key-findings {
+            background: #f1f8e9;
+            border-left: 4px solid #2e7d32;
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+        
+        .key-findings h3 {
+            color: #1a365d;
+            margin-top: 0;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .key-findings ul {
+            margin: 0;
+            padding-left: 1.5rem;
+        }
+        
+        .key-findings li {
             margin-bottom: 1rem;
         }
-
+        
+        .recommendations-box {
+            background: #e8f5e9;
+            border: 2px solid #2e7d32;
+            border-radius: 8px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .recommendations-box h3 {
+            color: #1a365d;
+            margin-top: 0;
+        }
+        
+        .impact-box {
+            background: #e3f2fd;
+            border: 2px solid #2196f3;
+            border-radius: 8px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .impact-box h3 {
+            color: #1a365d;
+            margin-top: 0;
+        }
+        
+        .case-study-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid #e2e8f0;
+        }
+        
+        .case-study-nav-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 1.5rem;
+            background: #ffffff;
+            border: 2px solid #e2e8f0;
+            border-radius: 6px;
+            text-decoration: none;
+            color: #2d3748;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            font-family: 'Source Sans Pro', sans-serif;
+        }
+        
+        .case-study-nav-btn:hover {
+            border-color: #2e7d32;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+        }
+        
+        .case-study-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 2rem;
+        }
+        
+        .case-study-tag {
+            background: linear-gradient(135deg, rgba(46, 125, 50, 0.15) 0%, rgba(46, 125, 50, 0.25) 100%);
+            color: #2e7d32;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            font-family: 'Source Sans Pro', sans-serif;
+            border: 1px solid rgba(46, 125, 50, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .case-study-tag:hover {
+            background: linear-gradient(135deg, rgba(46, 125, 50, 0.25) 0%, rgba(46, 125, 50, 0.35) 100%);
+            transform: translateY(-2px);
+        }
+        
+        .section-label {
+            display: inline-block;
+            color: #2e7d32;
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.75rem;
+            font-family: 'Source Sans Pro', sans-serif;
+        }
+        
+        .executive-summary {
+            background: linear-gradient(135deg, #f1f8e9 0%, #e8f5e9 100%);
+            padding: 2.5rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+            border-left: 5px solid #2e7d32;
+        }
+        
+        .executive-summary h3 {
+            color: #1a365d;
+            margin-top: 0;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .timeline-box {
+            background: #fff3e0;
+            border: 2px solid #ff9800;
+            border-radius: 8px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .timeline-box h3 {
+            color: #1a365d;
+            margin-top: 0;
+        }
+        
+        @media (max-width: 768px) {
+            .case-study-header {
+                padding: 6rem 0 3rem;
+            }
+            
+            .case-study-section h2 {
+                font-size: 1.75rem;
+            }
+            
+            .case-study-section h3 {
+                font-size: 1.25rem;
+            }
+            
+            .key-findings, .recommendations-box, .impact-box {
+                padding: 1.5rem;
+            }
+            
+            .case-study-navigation {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .case-study-nav-btn {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .case-study-meta {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+        }
+        
+        /* Body padding for fixed nav */
+        body {
+            padding-top: 80px;
+        }
+        
+        /* Logo link styling */
+        .logo a {
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        /* Numbered sections */
+        .numbered-section {
+            counter-increment: section;
+            position: relative;
+            padding-left: 3rem;
+        }
+        
+        .numbered-section::before {
+            content: counter(section) ".";
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 2rem;
+            font-weight: bold;
+            color: #2e7d32;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        /* Additional styling for formulas and boxes */
         .formula-box {
-            background: #2c3e2f;
+            background: #1a365d;
             color: white;
             padding: 1.5rem;
-            border-radius: 24px;
+            border-radius: 12px;
             font-family: monospace;
             font-size: 1.1rem;
             text-align: center;
             margin: 1.5rem 0;
         }
-
+        
         .verification-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
             gap: 1rem;
             margin: 1.5rem 0;
         }
-
+        
         .v-badge {
             background: #f1f9f0;
             padding: 1rem;
-            border-radius: 18px;
+            border-radius: 12px;
             font-weight: 600;
+            border-left: 3px solid #2e7d32;
         }
-
-        .risk-table {
-            width: 100%;
-            border-collapse: collapse;
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
+        
+        .grid-mechanisms {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
         }
-
-        .risk-table td, .risk-table th {
-            border: 1px solid #dde6df;
-            padding: 1rem;
-            vertical-align: top;
+        
+        .mechanic-card {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            border: 1px solid #e2e8f0;
         }
-
-        .case-study-nav-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.8rem;
-            background: white;
-            border: 2px solid #cbdcd0;
-            padding: 0.8rem 1.8rem;
-            border-radius: 60px;
-            text-decoration: none;
-            font-weight: 600;
-            color: #1f3b2c;
-            transition: 0.2s;
-        }
-
-        .case-study-nav-btn:hover {
-            border-color: #2e7d32;
-            transform: translateY(-2px);
-            box-shadow: 0 10px 18px rgba(0,0,0,0.05);
-        }
-
-        .footer {
-            background: #0c2b1f;
-            color: #cfe6db;
-            padding: 3rem 0 2rem;
-        }
-
-        @media (max-width: 768px) {
-            .nav-menu {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background: white;
-                flex-direction: column;
-                padding: 1.5rem;
-                box-shadow: 0 20px 30px rgba(0,0,0,0.05);
-            }
-            .mobile-toggle {
-                display: flex;
-            }
-            .nav-menu.active {
-                display: flex;
-            }
-            .case-study-header h1 {
-                font-size: 2.2rem;
-            }
-        }
-
-        .insight-stat {
-            display: flex;
-            gap: 1rem;
-            background: white;
-            border-radius: 20px;
-            padding: 1rem;
-            margin: 1rem 0;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-        .stat-number {
+        
+        .mechanic-card i {
             font-size: 2rem;
-            font-weight: 800;
             color: #2e7d32;
-        }
-        hr {
-            margin: 1rem 0;
-            border-color: #e2efdf;
+            margin-bottom: 1rem;
         }
     </style>
 </head>
 <body>
-<div class="announcement-bar">
-    <div class="container">
-        <span>📍 Product Strategy & Hyperlocal Intelligence | Evidence-based solutions</span>
-    </div>
-</div>
-
-<nav class="main-nav">
-    <div class="container">
-        <div class="nav-wrapper">
-            <div class="logo">
-                <a href="index.html">
-                    <div class="logo-mark">G.F</div>
-                    <div class="logo-text">
-                        <span class="logo-name">Ghulam Farid</span>
-                        <span class="logo-title">Business Strategy & Product Analyst</span>
-                    </div>
-                </a>
-            </div>
-            <div class="nav-menu" id="navMenu">
-                <ul class="nav-list">
-                    <li><a href="index.html#home" class="nav-link">Home</a></li>
-                    <li><a href="index.html#approach" class="nav-link">Approach</a></li>
-                    <li><a href="index.html#expertise" class="nav-link">Expertise</a></li>
-                    <li><a href="index.html#insights" class="nav-link active">Projects</a></li>
-                    <li><a href="index.html#contact" class="nav-link">Contact</a></li>
-                </ul>
-                <a href="index.html#contact" class="nav-cta"><span>Start a project</span><i class="fas fa-arrow-right"></i></a>
-            </div>
-            <button class="mobile-toggle" id="mobileToggle"><span></span><span></span><span></span></button>
+    <!-- Top Announcement Bar -->
+    <div class="announcement-bar">
+        <div class="container">
+            <span class="announcement-text">Strategic Business Analysis & Consulting | Data-Driven Decision Making</span>
         </div>
     </div>
-</nav>
 
-<header class="case-study-header">
-    <div class="container">
-        <div class="case-study-container">
-            <div class="section-label">🔥 PRODUCT CASE STUDY</div>
-            <h1 style="font-size: 3rem; margin: 1rem 0; font-family: 'Playfair Display', serif;">Pakistan's Hyperlocal Information Gap</h1>
-            <p style="font-size: 1.3rem; opacity: 0.9;">A geofenced, incentivised, verified community utility for real‑time urban intelligence</p>
-            <div class="case-study-meta">
-                <div class="case-study-meta-item"><i class="fas fa-user"></i><span>Ghulam Farid — Business Strategy & Product Analyst</span></div>
-                <div class="case-study-meta-item"><i class="fas fa-calendar-alt"></i><span>January 2026</span></div>
-                <div class="case-study-meta-item"><i class="fas fa-clock"></i><span>12 min read</span></div>
-            </div>
-            <div class="case-study-tags">
-                <span class="case-study-tag">Hyperlocal Intelligence</span>
-                <span class="case-study-tag">Incentive Architecture</span>
-                <span class="case-study-tag">Community Platform</span>
-                <span class="case-study-tag">Product Strategy</span>
-                <span class="case-study-tag">Pakistan Tech</span>
-                <span class="case-study-tag">Real‑Time Verification</span>
-            </div>
-        </div>
-    </div>
-</header>
-
-<main class="case-study-content">
-    <div class="container">
-        <div class="case-study-container">
-            <!-- EXECUTIVE SUMMARY -->
-            <div class="executive-summary">
-                <h3 style="margin-bottom: 0.5rem;">📌 Executive Summary</h3>
-                <p>Millions of urban Pakistanis lose 15–25 minutes daily due to fragmented, unverified local information — water supply, fuel availability, road blockages, medicine stock. This case study outlines a <strong>geofenced, incentivised, community‑verified utility platform</strong> that transforms idle neighbourhood knowledge into a reliable real-time network. By economically rewarding verified answers and enforcing GPS verification, the platform turns informal sharing into a structured, monetized intelligence layer. With a neighbourhood‑by‑neighbourhood launch strategy and robust risk mitigation, the product solves the hyperlocal information crisis while building a scalable, defensible business.</p>
-            </div>
-
-            <!-- PROBLEM -->
-            <section class="case-study-section">
-                <h2>⚡ The Invisible Crisis</h2>
-                <p>In Karachi, Lahore, Faisalabad, and Islamabad, every morning begins with urgent unknowns: <em>“Is there water today? Gas available? Which petrol pump has fuel? Is this road blocked? Which pharmacy has my medicine?”</em> Despite 500M smartphones, there’s no reliable mechanism to get verified answers from a trusted source. The urban household pays an invisible tax — 15 to 25 minutes of calling neighbours, scrolling stale WhatsApp messages, and making decisions based on conflicting information.</p>
-                <div class="insight-stat"><i class="fas fa-charging-station" style="font-size: 2rem; color:#2e7d32;"></i><span><strong class="stat-number">15–25 min</strong> daily search cost × 10M households → billions lost in productivity & emergency inefficiency.</span></div>
-                <p><strong>The cascade:</strong> a mother with no gas burns expensive backup fuel, a shopkeeper buys stock without price intelligence, a cardiac patient’s family drives across pharmacies, a daily wager takes flooded roads and loses wages. <strong>The problem is structural:</strong> real-time hyperlocal information exists in every neighbourhood — but no mechanism surfaces it.</p>
-            </section>
-
-            <!-- ROOT CAUSE + 5 WHYS -->
-            <section class="case-study-section">
-                <h2>🔎 Root Cause Analysis</h2>
-                <div class="key-findings">
-                    <h3>❓ The 5 Whys</h3>
-                    <ul style="padding-left: 1.5rem;">
-                        <li><strong>1. Why lack real-time local info?</strong> → No platform aggregates it reliably.</li>
-                        <li><strong>2. Why no platform?</strong> → Existing platforms built for social/search, not hyperlocal utility.</li>
-                        <li><strong>3. Why not designed for this?</strong> → Real-time contributions require geographic precision and supply incentives.</li>
-                        <li><strong>4. Why supply unsolved?</strong> → No incentive for verified local contributions.</li>
-                        <li><strong>5. Why no incentive?</strong> → No platform connects local knowledge sharing with economic reward.</li>
+    <!-- Main Navigation -->
+    <nav class="main-nav">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <a href="index.html">
+                        <div class="logo-mark">F.S</div>
+                        <div class="logo-text">
+                            <span class="logo-name">Ghulam Farid</span>
+                            <span class="logo-title">Business Strategy Analyst</span>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="nav-menu">
+                    <ul class="nav-list">
+                        <li><a href="index.html#home" class="nav-link">Home</a></li>
+                        <li><a href="index.html#approach" class="nav-link">Approach</a></li>
+                        <li><a href="index.html#expertise" class="nav-link">Expertise</a></li>
+                        <li><a href="index.html#insights" class="nav-link active">Projects</a></li>
+                        <li><a href="index.html#contact" class="nav-link">Contact</a></li>
                     </ul>
-                    <p style="margin-top: 1rem;"><strong>🎯 ROOT CAUSE:</strong> Absence of an incentive mechanism that transforms neighbourhood knowledge into a structured, verified, economically rewarded activity.</p>
+                    <a href="index.html#contact" class="nav-cta">
+                        <span>Start a project</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
-                <h3>Why Existing Platforms Fail</h3>
-                <ul>
-                    <li><strong>WhatsApp Groups</strong> — unstructured, unverified, no monetisation, no geofencing.</li>
-                    <li><strong>Facebook Groups</strong> — stale, lacks real-time urgency, answers from anywhere in city.</li>
-                    <li><strong>Google Maps</strong> — no community intelligence layer; can’t tell if water supply works today.</li>
-                    <li><strong>Utility apps</strong> — institutional delays, inaccurate vs. ground truth.</li>
-                </ul>
-            </section>
-
-            <!-- SOLUTION CONCEPT -->
-            <section class="case-study-section">
-                <h2>💡 Product Solution: Geofenced + Incentivised Utility</h2>
-                <p><strong>Core insight:</strong> every neighbourhood holds the answers. The platform's job is to create structural conditions that make sharing fast, verified, and worth doing.</p>
-                <div class="grid-mechanisms">
-                    <div class="mechanic-card"><i class="fas fa-map-marker-alt"></i><h3>1. Geofenced Q&A</h3><p>Questions route exclusively to users within 500m–2km radius. Answers come from direct physical presence, not hearsay.</p></div>
-                    <div class="mechanic-card"><i class="fas fa-coins"></i><h3>2. Incentive Engine</h3><p>Earn points per verified answer. Time multiplier rewards speed (3.0x within 2 mins → 0.5x after 12h). Points → cash.</p></div>
-                    <div class="mechanic-card"><i class="fas fa-shield-alt"></i><h3>3. Verification Layer</h3><p>GPS tagging, photo evidence, reciprocal rating detection, honeypot test questions → accurate answers = rational choice.</p></div>
-                    <div class="mechanic-card"><i class="fas fa-users"></i><h3>4. Community Circles</h3><p>Persistent groups for buildings, markets, mosques. Emergency alerts + intrinsic motivation beyond points.</p></div>
-                </div>
-
-                <h3>📐 Points Calculation (Incentive Engine)</h3>
-                <div class="formula-box">
-                    <strong>Base Score</strong> (1–10 from asker rating) <br>
-                    ✕ <strong>Time Bonus</strong> (3.0x ≤2min → 1.0x at 1hr → 0.5x ≥12hr) <br>
-                    ✕ <strong>Trust Bonus</strong> (higher for consistently accurate users) <br>
-                    = <strong>Total Points → Cash Redemption</strong>
-                </div>
-                <p>The <strong>Time Multiplier</strong> engineers urgency — early answers earn dramatically more, guaranteeing real-time freshness.</p>
-
-                <h3>🛡️ 4‑Layer Verification Architecture</h3>
-                <div class="verification-grid">
-                    <div class="v-badge"><i class="fas fa-satellite-dish"></i> Mandatory GPS geotagging</div>
-                    <div class="v-badge"><i class="fas fa-camera"></i> Photo evidence for high-value reports</div>
-                    <div class="v-badge"><i class="fas fa-chart-line"></i> Reciprocal rating detection (fraud flags)</div>
-                    <div class="v-badge"><i class="fas fa-question-circle"></i> Honeypot test questions with known answers</div>
-                </div>
-                <p>This combination makes accurate reporting the most economically rational behaviour.</p>
-            </section>
-
-            <!-- REVENUE MODEL -->
-            <section class="case-study-section">
-                <h2>💰 Revenue Model (Scalable Monetisation)</h2>
-                <ul>
-                    <li><strong>Layer 1 – Hyperlocal Ads:</strong> Pharmacies, petrol pumps, grocery stores pay to reach intent-driven users within 2km radius.</li>
-                    <li><strong>Layer 2 – Subscriptions:</strong> Power users & small businesses get priority queue, advanced tools, ad-free experience.</li>
-                    <li><strong>Layer 3 – B2B Data APIs:</strong> Utility companies subscribe to real-time outage intelligence (photo-verified community reports).</li>
-                </ul>
-                <div class="impact-box" style="margin-top: 1rem;">
-                    <i class="fas fa-chart-simple"></i> <strong>North Star Metric:</strong> Daily Verified Answers Delivered (not DAU — real value only when user gets a fast verified answer).
-                </div>
-            </section>
-
-            <!-- SUCCESS METRICS -->
-            <section class="case-study-section">
-                <h2>📊 Success Metrics & KPIs</h2>
-                <ul>
-                    <li>⚡ Median answer response time: <strong>under 3 minutes</strong></li>
-                    <li>✅ Answer verification rate: <strong>>70%</strong></li>
-                    <li>📆 Day 30 user retention: <strong>>35%</strong></li>
-                    <li>📈 Question-to-answer fulfilment: <strong>>85%</strong></li>
-                    <li>🛡️ Fraud detection flag rate: <strong><2%</strong></li>
-                    <li>💸 Points redemption rate: <strong>>40%</strong> (signals real economic value)</li>
-                </ul>
-            </section>
-
-            <!-- GO-TO-MARKET & RISKS -->
-            <section class="case-study-section">
-                <h2>🚀 Go‑to‑Market: neighbourhood-first expansion</h2>
-                <p><strong>Problem:</strong> cold start within geofence kills value. <strong>Solution:</strong> launch one dense neighbourhood at a time. Seed 50 paid trained answerers, validate <3 min response & >70% verification, then expand to adjacent blocks. Defensible reputation before demand arrives.</p>
-                <div class="timeline-box">
-                    <h3>📌 Expansion Playbook</h3>
-                    <p>✓ Seed neighbourhood with paid answerers → ✓ Validate core loop → ✓ Open organic user acquisition → ✓ Move to next geofence. Slower but builds unbreakable density moat.</p>
-                </div>
-
-                <h3>⚠️ Primary Risks & Mitigations</h3>
-                <table class="risk-table">
-                    <tr style="background:#e6f0ea;"><th>Risk</th><th>Mitigation</th></tr>
-                    <tr><td><strong>Cold start supply failure</strong> – no answers → user churn.</td><td>Paid answerer seeding in every new geofence before launch. Seed budget as top priority.</td></tr>
-                    <tr><td><strong>Verification gaming at scale</strong> – fake answers for points.</td><td>4‑layer verification (GPS, photo evidence, honeypot, rating detection) implemented before cash conversion.</td></tr>
-                    <tr><td><strong>Regulatory complexity (cash payout)</strong> – State Bank of Pakistan.</td><td>Phased approach: points redeemable for platform credits, merchant vouchers, partner discounts; full cash after regulatory clearance.</td></tr>
-                    <tr><td><strong>Fragile network effects at launch</strong> – single bad experience breaks trust.</td><td>Over‑invest in launch quality, slow expansion, maintain 99.5% answer reliability from seeded supply.</td></tr>
-                </table>
-            </section>
-
-            <!-- COMMUNITY CIRCLES + LONG TERM MOAT -->
-            <section class="case-study-section">
-                <h2>🏘️ Community Circles: From Extrinsic to Intrinsic Motivation</h2>
-                <p>Beyond Q&A, building‑specific or street‑block groups foster persistent coordination, emergency alerts, and social identity. Points can be copied by competitors; community identity cannot. Circles transform individual earners into neighbourhood stewards, improving retention and organic growth.</p>
-                <div class="recommendations-box">
-                    <h3>✨ Long‑term Strategic Moat</h3>
-                    <p>Data network effect + verified local intelligence + geofenced reputation scores = high switching costs. Utilities and local commerce embedded into the platform’s API layer creates an essential infrastructure utility for Pakistani cities.</p>
-                </div>
-            </section>
-
-            <!-- CLOSING IMPACT -->
-            <div class="impact-box">
-                <i class="fas fa-city"></i> <strong>Potential Impact</strong><br>
-                • Save 25 minutes per household daily → $2.3B annual productivity equivalent<br>
-                • Reduce emergency search costs for medicines, fuel, and utilities<br>
-                • Create micro‑earning opportunities for thousands of local contributors<br>
-                • Transform Pakistan’s urban information fabric — making neighbourhoods resilient in real time.
-            </div>
-
-            <!-- NAVIGATION -->
-            <div class="case-study-navigation" style="display: flex; justify-content: space-between; margin-top: 3rem; flex-wrap: wrap; gap: 1rem;">
-                <a href="index.html#insights" class="case-study-nav-btn"><i class="fas fa-arrow-left"></i> Back to Projects</a>
-                <a href="index.html#contact" class="case-study-nav-btn">Discuss Hyperlocal Strategy <i class="fas fa-calendar-alt"></i></a>
+                
+                <button class="mobile-toggle" id="mobileToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
             </div>
         </div>
-    </div>
-</main>
+    </nav>
 
-<footer class="footer">
-    <div class="container">
-        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2rem;">
-            <div>
-                <div style="display: flex; gap: 0.7rem; align-items: center; margin-bottom: 1rem;">
-                    <div class="logo-mark" style="background: #407a44;">G.F</div>
-                    <span style="font-weight: 700; font-size: 1.2rem;">Ghulam Farid</span>
+    <!-- Case Study Header -->
+    <header class="case-study-header">
+        <div class="container">
+            <div class="case-study-container">
+                <div class="section-label" style="color: rgba(255,255,255,0.8); border: 1px solid rgba(255,255,255,0.3); padding: 0.5rem 1rem; border-radius: 4px; background: rgba(255,255,255,0.1);">Product Case Study</div>
+                <h1 style="font-size: 3rem; color: white; margin: 1.5rem 0; font-family: 'Playfair Display', serif; line-height: 1.2;">Pakistan's Hyperlocal Information Gap</h1>
+                <p style="font-size: 1.25rem; color: rgba(255,255,255,0.9); margin: 1.5rem 0 2rem; font-family: 'Source Sans Pro', sans-serif; line-height: 1.6;">A geofenced, incentivised, verified community utility platform — transforming neighbourhood knowledge into real‑time urban intelligence.</p>
+                
+                <div class="case-study-meta">
+                    <div class="case-study-meta-item">
+                        <i class="fas fa-user" style="color: rgba(255,255,255,0.8);"></i>
+                        <span style="color: rgba(255,255,255,0.9);">Ghulam Farid</span>
+                    </div>
+                    <div class="case-study-meta-item">
+                        <i class="fas fa-calendar" style="color: rgba(255,255,255,0.8);"></i>
+                        <span style="color: rgba(255,255,255,0.9);">January 2026</span>
+                    </div>
+                    <div class="case-study-meta-item">
+                        <i class="fas fa-clock" style="color: rgba(255,255,255,0.8);"></i>
+                        <span style="color: rgba(255,255,255,0.9);">12 min read</span>
+                    </div>
                 </div>
-                <p>Business Strategy & Product Analyst — turning information asymmetry into ecosystem advantage.</p>
+                
+                <!-- Case Study Tags -->
+                <div class="case-study-tags" style="margin-top: 2.5rem;">
+                    <span class="case-study-tag" style="background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.25) 100%); color: white; border: 1px solid rgba(255,255,255,0.4); padding: 0.6rem 1.2rem; font-weight: 600; backdrop-filter: blur(10px);">Hyperlocal Intelligence</span>
+                    <span class="case-study-tag" style="background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.25) 100%); color: white; border: 1px solid rgba(255,255,255,0.4); padding: 0.6rem 1.2rem; font-weight: 600; backdrop-filter: blur(10px);">Incentive Architecture</span>
+                    <span class="case-study-tag" style="background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.25) 100%); color: white; border: 1px solid rgba(255,255,255,0.4); padding: 0.6rem 1.2rem; font-weight: 600; backdrop-filter: blur(10px);">Community Platform</span>
+                    <span class="case-study-tag" style="background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.25) 100%); color: white; border: 1px solid rgba(255,255,255,0.4); padding: 0.6rem 1.2rem; font-weight: 600; backdrop-filter: blur(10px);">Pakistan Tech</span>
+                    <span class="case-study-tag" style="background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.25) 100%); color: white; border: 1px solid rgba(255,255,255,0.4); padding: 0.6rem 1.2rem; font-weight: 600; backdrop-filter: blur(10px);">Product Strategy</span>
+                </div>
             </div>
-            <div><h4>Explore</h4><a href="index.html#insights" style="color:#bbdfc9; text-decoration: none;">Case Studies</a><br><a href="index.html#approach" style="color:#bbdfc9;">Methodology</a></div>
-            <div><h4>Connect</h4><p><i class="fas fa-envelope"></i> strategy@farid.work</p><p><i class="fab fa-linkedin"></i> /in/ghulam-farid</p></div>
         </div>
-        <hr style="margin: 2rem 0 1rem; border-color: #2c5a42;">
-        <p style="text-align: center; font-size: 0.8rem;">© 2026 Ghulam Farid — Hyperlocal Product Case Study. All insights proprietary.</p>
-    </div>
-</footer>
+    </header>
 
-<script>
-    const mobileToggle = document.getElementById('mobileToggle');
-    const navMenu = document.getElementById('navMenu');
-    mobileToggle?.addEventListener('click', () => {
-        mobileToggle.classList.toggle('active');
-        navMenu.classList.toggle('active');
-    });
-</script>
+    <!-- Case Study Content -->
+    <main class="case-study-content">
+        <div class="container">
+            <div class="case-study-container">
+                <!-- Executive Summary -->
+                <section class="executive-summary">
+                    <h3>Executive Summary</h3>
+                    <p>Every morning in Karachi, Lahore, Faisalabad, and Islamabad, millions of urban residents face the same invisible crisis: Is there water today? Is gas available? Which petrol pump has fuel? Is this road blocked? Which pharmacy has this medicine in stock? Despite 500 million smartphones, there is no reliable mechanism to get these answers quickly and accurately from a trusted source. The urban household pays an invisible tax of 15–25 minutes daily — calling neighbours, checking WhatsApp groups, scrolling stale Facebook posts.</p>
+                    <p>This case study presents a <strong>geofenced, incentivised, verified community utility platform</strong> that transforms informal neighbourhood knowledge sharing into a structured, real‑time information network. By economically rewarding verified answers and enforcing GPS‑based verification, the platform solves the hyperlocal information gap while building a scalable, defensible business model.</p>
+                </section>
+
+                <!-- Situation / Problem -->
+                <section class="case-study-section">
+                    <h2>The Problem: What Is Actually Happening on the Ground</h2>
+                    <p>The information exists — every neighbourhood has residents who know exactly what is happening in real time. The gap is structural: no mechanism to surface it, verify it, and deliver it at the moment of need. This invisible crisis cascades: a mother burns expensive backup fuel when gas is unavailable; a shopkeeper buys stock without price intelligence; a cardiac patient's family drives to three pharmacies for medicine that a neighbour two streets away could have confirmed; a daily wage worker takes a flooded route and loses a day's wage.</p>
+                    <p><strong>The core insight:</strong> Pakistan's urban centres suffer from a chronic absence of real‑time, verified, hyperlocal information — despite having the human knowledge infrastructure to provide it sitting idle in every neighbourhood.</p>
+                </section>
+
+                <!-- Root Cause Analysis -->
+                <section class="case-study-section">
+                    <h2>Root Cause Analysis</h2>
+                    <div class="key-findings">
+                        <h3>The 5 Whys</h3>
+                        <ul>
+                            <li><strong>Why do urban Pakistanis lack real-time local information?</strong> → No platform aggregates and delivers it reliably.</li>
+                            <li><strong>Why does no platform do this?</strong> → Existing platforms were designed for social connection or search, not hyperlocal utility.</li>
+                            <li><strong>Why were they not designed for this?</strong> → Hyperlocal utility requires real-time contribution from geographically specific users — a supply problem social platforms can't solve.</li>
+                            <li><strong>Why is the supply problem unsolved?</strong> → No incentive for individuals to contribute verified real-time local information consistently.</li>
+                            <li><strong>Why is there no incentive?</strong> → No platform has connected sharing local knowledge with economic reward, despite millions already doing it informally for free.</li>
+                        </ul>
+                        <p><strong>Root Cause:</strong> The absence of an incentive mechanism that transforms informal neighbourhood knowledge sharing into a structured, verified, economically rewarded activity.</p>
+                    </div>
+                    
+                    <h3>Why Existing Platforms Cannot Fill This Gap</h3>
+                    <ul>
+                        <li><strong>WhatsApp Groups:</strong> Unstructured, unverified, unmonetised, unorganised — no geofencing, no search.</li>
+                        <li><strong>Facebook Groups:</strong> Stale, no real-time urgency, answers can come from anywhere.</li>
+                        <li><strong>Google Maps:</strong> No community intelligence layer — can't tell if water supply is working today.</li>
+                        <li><strong>Utility Apps:</strong> Institutional, delayed, often inaccurate compared to ground-level observation.</li>
+                    </ul>
+                </section>
+
+                <!-- The Solution -->
+                <section class="case-study-section">
+                    <h2>The Solution: Product Concept</h2>
+                    <p>The solution is a <strong>geofenced, incentivised, verified community utility platform</strong> — a structured mechanism that transforms existing informal knowledge-sharing into a reliable, real-time, economically rewarded information network. The platform's job is not to generate information; it is to create structural conditions that make sharing fast, reliable, verified, and worth doing.</p>
+                    
+                    <h3>Core Mechanics</h3>
+                    <div class="grid-mechanisms">
+                        <div class="mechanic-card">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <h4>1. Geofenced Q&A</h4>
+                            <p>Questions route exclusively to verified users within a defined radius (500m–2km). Every answer comes from someone with direct, current, physical knowledge.</p>
+                        </div>
+                        <div class="mechanic-card">
+                            <i class="fas fa-coins"></i>
+                            <h4>2. Incentive Engine</h4>
+                            <p>Points earned per verified answer. Time multiplier (3.0x within 2 minutes) rewards speed and urgency. Points convert to cash.</p>
+                        </div>
+                        <div class="mechanic-card">
+                            <i class="fas fa-shield-alt"></i>
+                            <h4>3. Verification Layer</h4>
+                            <p>GPS mandatory tagging, photo evidence, reciprocal rating detection, honeypot test questions — making accurate answers economically rational.</p>
+                        </div>
+                        <div class="mechanic-card">
+                            <i class="fas fa-users"></i>
+                            <h4>4. Community Circles</h4>
+                            <p>Persistent geofenced groups for buildings, markets, mosques. Emergency alerts and intrinsic motivation beyond points.</p>
+                        </div>
+                    </div>
+
+                    <div class="formula-box">
+                        <strong>Points = Base Score (1–10) × Time Bonus (3.0x ≤2min → 0.5x ≥12hr) × Trust Bonus</strong><br>
+                        → Cash Redemption
+                    </div>
+
+                    <div class="verification-grid">
+                        <div class="v-badge"><i class="fas fa-satellite-dish"></i> GPS Mandatory Tagging</div>
+                        <div class="v-badge"><i class="fas fa-camera"></i> Photo Evidence Requirements</div>
+                        <div class="v-badge"><i class="fas fa-chart-line"></i> Reciprocal Rating Detection</div>
+                        <div class="v-badge"><i class="fas fa-question-circle"></i> Honeypot Test Questions</div>
+                    </div>
+                </section>
+
+                <!-- Revenue Model & Success Metrics -->
+                <section class="case-study-section">
+                    <h2>Revenue Model & Success Metrics</h2>
+                    <div class="recommendations-box">
+                        <h3>Revenue Model (3 Layers)</h3>
+                        <ul>
+                            <li><strong>Layer 1 – Hyperlocal Advertising:</strong> Pharmacies, petrol pumps, grocery stores pay to reach intent-driven users within 2km.</li>
+                            <li><strong>Layer 2 – Subscriptions:</strong> Power users & small businesses get priority queuing, advanced tools, ad‑free experience.</li>
+                            <li><strong>Layer 3 – B2B Data APIs:</strong> Utility companies pay for real-time outage intelligence (photo‑verified community reports).</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="impact-box">
+                        <h3>North Star & KPIs</h3>
+                        <p><strong>North Star Metric:</strong> Daily Verified Answers Delivered (not DAU — value is only delivered when a user receives a verified answer).</p>
+                        <ul>
+                            <li>Median answer response time: <strong>&lt;3 minutes</strong></li>
+                            <li>Answer verification rate: <strong>&gt;70%</strong></li>
+                            <li>Day 30 user retention: <strong>&gt;35%</strong></li>
+                            <li>Question-to-answer fulfilment: <strong>&gt;85%</strong></li>
+                            <li>Fraud detection flag rate: <strong>&lt;2%</strong></li>
+                            <li>Points redemption rate: <strong>&gt;40%</strong></li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Go-to-Market & Risks -->
+                <section class="case-study-section">
+                    <h2>Go‑to‑Market & Risk Mitigation</h2>
+                    <div class="timeline-box">
+                        <h3>Neighbourhood‑First Launch Sequence</h3>
+                        <p>Start with one dense urban neighbourhood. Seed with 50 paid, trained answerers. Validate core promise (answers in under 3 minutes, verification &gt;70%, retention &gt;40%). Then expand to adjacent neighbourhoods — each new area has sufficient supply before demand arrives. Slower but builds a defensible reputation.</p>
+                    </div>
+                    
+                    <div class="key-findings">
+                        <h3>Primary Risks & Mitigations</h3>
+                        <ul>
+                            <li><strong>Cold Start Supply Failure:</strong> Mitigation → Paid seeding of answerers in every new geography before organic launch.</li>
+                            <li><strong>Verification Gaming at Scale:</strong> Mitigation → Four verification layers implemented before cash conversion is enabled.</li>
+                            <li><strong>Regulatory Complexity (Cash Conversion):</strong> Mitigation → Phased approach: points redeem for platform credits, merchant discounts first; full cash after regulatory clearance.</li>
+                            <li><strong>Network Effect Fragility:</strong> Mitigation → Over‑invest in launch quality; slow, deliberate expansion to ensure positive early experiences.</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Impact Conclusion -->
+                <div class="impact-box">
+                    <h3>Potential Impact</h3>
+                    <ul>
+                        <li>Save 15–25 minutes per household daily → billions in recovered productivity</li>
+                        <li>Reduce emergency search costs for medicines, fuel, and utilities</li>
+                        <li>Create micro‑earning opportunities for thousands of local contributors</li>
+                        <li>Transform Pakistan's urban information fabric — making neighbourhoods resilient in real time</li>
+                    </ul>
+                </div>
+
+                <!-- Case Study Navigation -->
+                <div class="case-study-navigation">
+                    <a href="index.html#insights" class="case-study-nav-btn">
+                        <i class="fas fa-arrow-left"></i>
+                        <span>Back to Case Studies</span>
+                    </a>
+                    <a href="index.html#contact" class="case-study-nav-btn">
+                        <span>Schedule Consultation</span>
+                        <i class="fas fa-calendar"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <div class="logo-mark">F.S</div>
+                        <div class="logo-text">
+                            <span class="logo-title">Ghulam Farid</span>
+                            <span class="logo-title">Business Strategy Analyst</span>
+                        </div>
+                    </div>
+                    <p class="footer-tagline">Where strategy meets progress</p>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="link-group">
+                        <h4>Navigation</h4>
+                        <a href="index.html#home">Home</a>
+                        <a href="index.html#approach">Approach</a>
+                        <a href="index.html#expertise">Expertise</a>
+                        <a href="index.html#insights">Projects</a>
+                        <a href="index.html#contact">Contact</a>
+                    </div>
+                    
+                    <div class="link-group">
+                        <h4>Services</h4>
+                        <span>Business Strategy</span>
+                        <span>Market Analysis</span>
+                        <span>Competitive Intelligence</span>
+                        <span>Strategic Planning</span>
+                    </div>
+                </div>
+                
+                <div class="footer-cta">
+                    <h4>Ready to transform your strategy?</h4>
+                    <a href="index.html#contact" class="btn btn-secondary">
+                        <span>Start a Project</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Ghulam Farid. All rights reserved.</p>
+                <p class="footer-site">FaridStrategy.com</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu toggle
+            const mobileToggle = document.getElementById('mobileToggle');
+            const navMenu = document.querySelector('.nav-menu');
+            
+            if (mobileToggle) {
+                mobileToggle.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                    navMenu.classList.toggle('active');
+                });
+            }
+            
+            // Highlight active nav link
+            const currentPage = window.location.pathname.split('/').pop();
+            if (currentPage === 'hyperlocal-information-gap.html') {
+                document.querySelectorAll('.nav-link').forEach(link => {
+                    link.classList.remove('active');
+                });
+                const insightsLink = document.querySelector('a[href*="insights"]');
+                if (insightsLink) {
+                    insightsLink.classList.add('active');
+                }
+            }
+        });
+    </script>
 </body>
 </html>
